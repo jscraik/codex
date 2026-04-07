@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0",
+  "authorization_id": "AUTH-20260406174810",
+  "principal": "jamiecraik",
+  "signature": {
+    "algorithm": "HS256",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemF0aW9uX2lkIjoiQVVUSC0yMDI2MDQwNjE3NDgxMCIsInByaW5jaXBhbCI6ImphbWllY3JhaWsiLCJ0YXJnZXRfaWQiOiJvcGVuYWktY29kZXgtdjIiLCJ0YXJnZXRfa2luZCI6Im9zcy1yZXBvIiwidGFyZ2V0X2xvY2F0b3IiOiIvVXNlcnMvamFtaWVjcmFpay9kZXYvY29kZXgiLCJtYXhfcmlza19sZXZlbCI6Imluc3RydW1lbnRhdGlvbiIsInByb2JlX2lkcyI6W10sImlhdCI6MTc3NTQ5NzY5MCwiZXhwIjoxNzc1NTg0MDkwfQ.ipKgQijJC0vvLDvT2qsv8RjQJQkMPaFq27nbyy9OYEQ",
+    "key_id": "default"
+  },
+  "scope": {
+    "targets": [
+      "openai-codex-v2"
+    ],
+    "locator_pattern": "/Users/jamiecraik/dev/codex",
+    "max_risk_level": "instrumentation",
+    "requires_network": false
+  },
+  "expires_at_utc": "2026-04-07T17:48:10.152777+00:00",
+  "timestamp_utc": "2026-04-06T17:48:10.152777+00:00"
+}

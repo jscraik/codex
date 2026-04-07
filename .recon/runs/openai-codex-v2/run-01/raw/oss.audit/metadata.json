@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "probe_id": "oss.audit",
+  "timestamp_start_utc": "2026-04-06T17:49:11.567550+00:00",
+  "timestamp_end_utc": "2026-04-06T17:49:11.567555+00:00",
+  "wall_time_seconds": 4.727857,
+  "command": "scripts/probes/oss_audit.sh",
+  "args": {
+    "raw_args": [
+      "--repo",
+      "/Users/jamiecraik/dev/codex"
+    ],
+    "repo": "/Users/jamiecraik/dev/codex",
+    "out": "/Users/jamiecraik/dev/codex/.recon/runs/openai-codex-v2/run-01/raw/oss.audit"
+  },
+  "exit_code": 0,
+  "exit_signal": null,
+  "retry_count": 0,
+  "stdout_path": "raw/oss.audit/stdout.txt",
+  "stderr_path": "raw/oss.audit/stderr.txt",
+  "artifacts": [
+    "raw/oss.audit/pattern_extraction.log",
+    "raw/oss.audit/pnpm_audit.txt",
+    "raw/oss.audit/patterns.json"
+  ],
+  "hostname": "Mac-Studio.local",
+  "username": "jamiecraik"
+}

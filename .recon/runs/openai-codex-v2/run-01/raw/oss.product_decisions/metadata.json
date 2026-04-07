@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "probe_id": "oss.product_decisions",
+  "timestamp_start_utc": "2026-04-06T17:49:12.800538+00:00",
+  "timestamp_end_utc": "2026-04-06T17:49:12.800542+00:00",
+  "wall_time_seconds": 0.071684,
+  "command": "scripts/probes/oss_product_decisions.sh",
+  "args": {
+    "raw_args": [
+      "--repo",
+      "/Users/jamiecraik/dev/codex"
+    ],
+    "repo": "/Users/jamiecraik/dev/codex",
+    "out": "/Users/jamiecraik/dev/codex/.recon/runs/openai-codex-v2/run-01/raw/oss.product_decisions"
+  },
+  "exit_code": 0,
+  "exit_signal": null,
+  "retry_count": 0,
+  "stdout_path": "raw/oss.product_decisions/stdout.txt",
+  "stderr_path": "raw/oss.product_decisions/stderr.txt",
+  "artifacts": [
+    "raw/oss.product_decisions/product_decisions_report.md",
+    "raw/oss.product_decisions/status.txt",
+    "raw/oss.product_decisions/product_decisions.json"
+  ],
+  "hostname": "Mac-Studio.local",
+  "username": "jamiecraik"
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "probe_id": "oss.product_decisions",
+  "repo_path": "/Users/jamiecraik/dev/codex",
+  "scanned_at": "2026-04-06T17:49:12.791284+00:00",
+  "status": "no_evidence",
+  "scanned_paths": [
+    "PRD.md",
+    "docs/PRD.md",
+    "docs/prd.md",
+    "docs/specs/*.md",
+    "docs/product/*.md",
+    ".spec/tech-spec-*.md"
+  ],
+  "files_found": [],
+  "coverage_score": 0,
+  "required_sections": {
+    "problem_and_job": {
+      "detected": false,
+      "evidence": []
+    },
+    "success_criteria": {
+      "detected": false,
+      "evidence": []
+    },
+    "scope": {
+      "detected": false,
+      "evidence": []
+    },
+    "primary_user_journey": {
+      "detected": false,
+      "evidence": []
+    }
+  },
+  "conditional_sections": {
+    "assumption_risk_map": {
+      "detected": false,
+      "evidence": []
+    },
+    "opportunity_solution_tree": {
+      "detected": false,
+      "evidence": []
+    },
+    "build_breakdown": {
+      "detected": false,
+      "evidence": []
+    }
+  },
+  "documents": []
+}

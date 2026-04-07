@@ -1,0 +1,29 @@
+Running architecture analysis on: /Users/jamiecraik/dev/codex
+Output directory: /Users/jamiecraik/dev/codex/.recon/runs/openai-codex-v2/run-01/raw/oss.architecture_map
+Artifact: architecture_map.json (SHA256: fe073fc848b7a7e6be2214b7fecc3844b435ee215311176344720742b15c3587)
+Artifact: architecture_map.mmd (SHA256: fff2e61983dfb027ad32fd90432b12e0114425badbb2adad0c1a483d29b3dfed)
+Artifact: architecture_metrics.json (SHA256: 05d9fa1e7a28cb7c330fa9518fe97a079fdc67f254eb6022b895d6389174d27c)
+Artifact: architecture_hotspots.md (SHA256: ef2b62ed5905b8aeb696fe462cfd7ea7b4a7fcfae8e74e0cca3ca78100263061)
+Architecture analysis complete
+{
+  "probe_id": "oss.architecture_map",
+  "artifacts": [
+    {
+      "path": "architecture_map.json",
+      "sha256": "fe073fc848b7a7e6be2214b7fecc3844b435ee215311176344720742b15c3587"
+    },
+    {
+      "path": "architecture_map.mmd",
+      "sha256": "fff2e61983dfb027ad32fd90432b12e0114425badbb2adad0c1a483d29b3dfed"
+    },
+    {
+      "path": "architecture_metrics.json",
+      "sha256": "05d9fa1e7a28cb7c330fa9518fe97a079fdc67f254eb6022b895d6389174d27c"
+    },
+    {
+      "path": "architecture_hotspots.md",
+      "sha256": "ef2b62ed5905b8aeb696fe462cfd7ea7b4a7fcfae8e74e0cca3ca78100263061"
+    }
+  ],
+  "exit_code": 0
+}

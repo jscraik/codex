@@ -1,0 +1,2 @@
+[INFO] Starting oss.technical_decisions probe on /Users/jamiecraik/dev/codex
+[INFO] oss.technical_decisions probe completed: OK

@@ -1,0 +1,18 @@
+{
+  "Rust": {
+    "reports": [
+      {
+        "name": "codex-rs/tui/src/chatwidget.rs",
+        "stats": { "code": 11071 }
+      },
+      {
+        "name": "codex-rs/tui/src/app.rs",
+        "stats": { "code": 10929 }
+      },
+      {
+        "name": "codex-rs/app-server/src/codex_message_processor.rs",
+        "stats": { "code": 9669 }
+      }
+    ]
+  }
+}

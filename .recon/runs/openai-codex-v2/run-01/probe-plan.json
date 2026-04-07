@@ -1,0 +1,56 @@
+{
+  "schema_version": "2.1.0",
+  "session_id": "fd0c736d",
+  "target": {
+    "id": "openai-codex-v2",
+    "kind": "oss-repo",
+    "locator": "/Users/jamiecraik/dev/codex",
+    "web_detection": {
+      "detected": false,
+      "confidence": "low",
+      "frameworks": [],
+      "signals": {
+        "package_json_present": true,
+        "package_json_paths": [
+          "package.json",
+          "codex-cli/package.json"
+        ],
+        "framework_deps": [],
+        "config_files": [],
+        "import_signals": {
+          "jsx_imports": 0,
+          "tsx_imports": 0,
+          "react_imports": 0,
+          "vue_imports": 0,
+          "svelte_imports": 0,
+          "angular_imports": 0,
+          "next_imports": 0
+        },
+        "frameworks_from_imports": []
+      }
+    }
+  },
+  "runs": [
+    {
+      "run_id": "a2fb56f5",
+      "type": "baseline",
+      "probe_ids": [
+        "oss.architecture_decisions",
+        "oss.architecture_map",
+        "oss.audit",
+        "oss.ci_scan",
+        "oss.csp_audit",
+        "oss.deps_tree",
+        "oss.git_hotspots",
+        "oss.imports_analysis",
+        "oss.ipc_validate",
+        "oss.product_decisions",
+        "oss.sast_semgrep",
+        "oss.sbom",
+        "oss.sbom_syft",
+        "oss.technical_decisions"
+      ]
+    }
+  ],
+  "authorization_scope": "/Users/jamiecraik/dev/codex/.recon/authorization.json"
+}

@@ -1,0 +1,9 @@
+Semgrep SAST Summary
+====================
+Config: p/ci
+Total findings: 0
+  Errors: 0
+  Warnings: 0
+
+Top rules triggered:
+

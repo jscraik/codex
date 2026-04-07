@@ -1,0 +1,25 @@
+Running OSS audit on: /Users/jamiecraik/dev/codex
+Output directory: /Users/jamiecraik/dev/codex/.recon/runs/openai-codex-v2/run-01/raw/oss.audit
+Running npm audit...
+Checking for pattern extraction...
+Running pattern extraction...
+Pattern extraction complete: "test_gate: 0, api_endpoint: 0, auth_flow: 23, dangerous_pattern: 30, secret: 0, graphql_resilience: 15"
+OSS audit complete. Artifacts in: /Users/jamiecraik/dev/codex/.recon/runs/openai-codex-v2/run-01/raw/oss.audit
+{
+  "probe_id": "oss_audit",
+  "artifacts": [
+    {
+      "path": "pnpm_audit.txt",
+      "sha256": "404de96ee464403e1f713d5492a1751b2a3a6588941713aa51f26bef9c11dd9e"
+    },
+    {
+      "path": "patterns.json",
+      "sha256": "5f79d34c320b82c0f3130f1803e0605f3ec0db7772c0a568e3540516070fd98c"
+    },
+    {
+      "path": "pattern_extraction.log",
+      "sha256": "41d603bea92fb39cadd5161d99da3d2515d48ac496a319bc6a110051f7b243f3"
+    }
+  ],
+  "exit_code": 0
+}

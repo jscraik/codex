@@ -1,0 +1,1 @@
+SKIPPED: tauri IPC entrypoints not found
