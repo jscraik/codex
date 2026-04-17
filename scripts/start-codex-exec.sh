@@ -21,6 +21,7 @@ esac
 remote_host="$1"
 shift
 
+# shellcheck disable=SC2088
 remote_path='~/code/codex-sync'
 local_exec_server_port="${CODEX_REMOTE_EXEC_SERVER_LOCAL_PORT:-8765}"
 remote_exec_server_start_timeout_seconds="${CODEX_REMOTE_EXEC_SERVER_START_TIMEOUT_SECONDS:-15}"
@@ -36,6 +37,7 @@ cleanup() {
   trap - EXIT INT TERM
 
   if [[ -n "${remote_exec_server_pid_path}" ]]; then
+    # shellcheck disable=SC2029
     ssh "${remote_host}" \
       "if [[ -f '${remote_exec_server_pid_path}' ]]; then kill \$(cat '${remote_exec_server_pid_path}') >/dev/null 2>&1 || true; fi; rm -f '${remote_exec_server_pid_path}' '${remote_exec_server_log_path}'" \
       >/dev/null 2>&1 || true
@@ -66,6 +68,7 @@ repo_root="$(git rev-parse --show-toplevel 2>/dev/null)" || {
   exit 1
 }
 
+# shellcheck disable=SC2029
 ssh "${remote_host}" "mkdir -p ${remote_path}"
 ssh "${remote_host}" -C "sudo apt-get install rsync libcap-dev"
 
