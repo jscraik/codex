@@ -120,7 +120,6 @@ use std::path::PathBuf;
 use std::sync::Arc;
 use std::time::Duration as StdDuration;
 
-#[path = "codex_tests_guardian.rs"]
 mod guardian_tests;
 
 struct InstructionsTestCase {
@@ -870,7 +869,7 @@ async fn user_shell_commands_do_not_inherit_managed_network_proxy() -> anyhow::R
 #[tokio::test]
 async fn get_base_instructions_no_user_content() {
     let prompt_with_apply_patch_instructions =
-        include_str!("../prompt_with_apply_patch_instructions.md");
+        include_str!("../../prompt_with_apply_patch_instructions.md");
     let models_response = bundled_models_response()
         .unwrap_or_else(|err| panic!("bundled models.json should parse: {err}"));
     let model_info_for_slug = |slug: &str, config: &Config| {
@@ -2071,6 +2070,7 @@ async fn set_rate_limits_retains_previous_credits() {
             balance: Some("10.00".to_string()),
         }),
         plan_type: Some(codex_protocol::account::PlanType::Plus),
+        rate_limit_reached_type: None,
     };
     state.set_rate_limits(initial.clone());
 
@@ -2089,6 +2089,7 @@ async fn set_rate_limits_retains_previous_credits() {
         }),
         credits: None,
         plan_type: None,
+        rate_limit_reached_type: None,
     };
     state.set_rate_limits(update.clone());
 
@@ -2101,6 +2102,7 @@ async fn set_rate_limits_retains_previous_credits() {
             secondary: update.secondary,
             credits: initial.credits,
             plan_type: initial.plan_type,
+            rate_limit_reached_type: None,
         })
     );
 }
@@ -2177,6 +2179,7 @@ async fn set_rate_limits_updates_plan_type_when_present() {
             balance: Some("15.00".to_string()),
         }),
         plan_type: Some(codex_protocol::account::PlanType::Plus),
+        rate_limit_reached_type: None,
     };
     state.set_rate_limits(initial.clone());
 
@@ -2191,6 +2194,7 @@ async fn set_rate_limits_updates_plan_type_when_present() {
         secondary: None,
         credits: None,
         plan_type: Some(codex_protocol::account::PlanType::Pro),
+        rate_limit_reached_type: None,
     };
     state.set_rate_limits(update.clone());
 
@@ -2203,6 +2207,7 @@ async fn set_rate_limits_updates_plan_type_when_present() {
             secondary: update.secondary,
             credits: initial.credits,
             plan_type: update.plan_type,
+            rate_limit_reached_type: None,
         })
     );
 }
