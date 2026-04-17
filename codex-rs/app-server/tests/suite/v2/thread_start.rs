@@ -1,6 +1,7 @@
 use anyhow::Result;
 use app_test_support::ChatGptAuthFixture;
 use app_test_support::McpProcess;
+use app_test_support::PathBufExt;
 use app_test_support::create_mock_responses_server_repeating_assistant;
 use app_test_support::to_response;
 use app_test_support::write_chatgpt_auth;
@@ -20,6 +21,7 @@ use codex_app_server_protocol::ThreadStatus;
 use codex_app_server_protocol::ThreadStatusChangedNotification;
 use codex_config::types::AuthCredentialsStoreMode;
 use codex_core::config::set_project_trust_level;
+use codex_exec_server::LOCAL_FS;
 use codex_git_utils::resolve_root_git_project_for_trust;
 use codex_login::REFRESH_TOKEN_URL_OVERRIDE_ENV_VAR;
 use codex_protocol::config_types::ServiceTier;
@@ -42,7 +44,6 @@ use wiremock::matchers::path;
 use super::analytics::assert_basic_thread_initialized_event;
 use super::analytics::mount_analytics_capture;
 use super::analytics::thread_initialized_event;
-use super::analytics::wait_for_analytics_event;
 use super::analytics::wait_for_analytics_payload;
 
 const DEFAULT_READ_TIMEOUT: std::time::Duration = std::time::Duration::from_secs(10);
@@ -212,14 +213,15 @@ async fn thread_start_response_includes_loaded_instruction_sources() -> Result<(
 }
 
 #[cfg(windows)]
-fn normalize_path_for_comparison(path: PathBuf) -> PathBuf {
+fn normalize_path_for_comparison(path: impl AsRef<Path>) -> PathBuf {
+    let path = path.as_ref();
     let path = path.display().to_string();
     PathBuf::from(path.strip_prefix(r"\\?\").unwrap_or(&path))
 }
 
 #[cfg(not(windows))]
-fn normalize_path_for_comparison(path: PathBuf) -> PathBuf {
-    path
+fn normalize_path_for_comparison(path: impl AsRef<Path>) -> PathBuf {
+    path.as_ref().to_path_buf()
 }
 
 #[tokio::test]
@@ -281,16 +283,25 @@ async fn thread_start_does_not_track_thread_initialized_analytics_without_featur
     .await??;
     let _ = to_response::<ThreadStartResponse>(resp)?;
 
-    let payload = wait_for_analytics_event(
-        &server,
-        Duration::from_millis(250),
-        "codex_thread_initialized",
-    )
-    .await;
-    assert!(
-        payload.is_err(),
-        "thread analytics should be gated off when general_analytics is disabled"
-    );
+    assert_no_thread_initialized_analytics(&server, Duration::from_millis(250)).await?;
+    Ok(())
+}
+
+async fn assert_no_thread_initialized_analytics(
+    server: &MockServer,
+    wait_duration: Duration,
+) -> Result<()> {
+    tokio::time::sleep(wait_duration).await;
+    let requests = server.received_requests().await.unwrap_or_default();
+    for request in requests.iter().filter(|request| {
+        request.method == "POST" && request.url.path() == "/codex/analytics-events/events"
+    }) {
+        let payload: Value = serde_json::from_slice(&request.body)?;
+        assert!(
+            thread_initialized_event(&payload).is_err(),
+            "thread analytics should be gated off when general_analytics is disabled; payload={payload}"
+        );
+    }
     Ok(())
 }
 
@@ -707,9 +718,11 @@ model_reasoning_effort = "high"
     assert_eq!(reasoning_effort, Some(ReasoningEffort::High));
 
     let config_toml = std::fs::read_to_string(codex_home.path().join("config.toml"))?;
-    let trusted_root = resolve_root_git_project_for_trust(workspace.path())
-        .unwrap_or_else(|| workspace.path().to_path_buf());
-    assert!(config_toml.contains(&persisted_trust_path(&trusted_root)));
+    let workspace_abs = workspace.path().to_path_buf().abs();
+    let trusted_root = resolve_root_git_project_for_trust(LOCAL_FS.as_ref(), &workspace_abs)
+        .await
+        .unwrap_or(workspace_abs);
+    assert!(config_toml.contains(&persisted_trust_path(trusted_root.as_path())));
     assert!(config_toml.contains("trust_level = \"trusted\""));
 
     Ok(())
@@ -744,9 +757,11 @@ async fn thread_start_with_nested_git_cwd_trusts_repo_root() -> Result<()> {
     .await??;
 
     let config_toml = std::fs::read_to_string(codex_home.path().join("config.toml"))?;
-    let trusted_root =
-        resolve_root_git_project_for_trust(&nested).expect("git root should resolve");
-    assert!(config_toml.contains(&persisted_trust_path(&trusted_root)));
+    let nested_abs = nested.abs();
+    let trusted_root = resolve_root_git_project_for_trust(LOCAL_FS.as_ref(), &nested_abs)
+        .await
+        .expect("git root should resolve");
+    assert!(config_toml.contains(&persisted_trust_path(trusted_root.as_path())));
     assert!(!config_toml.contains(&persisted_trust_path(&nested)));
 
     Ok(())

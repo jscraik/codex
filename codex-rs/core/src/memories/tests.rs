@@ -1,6 +1,6 @@
+use super::control::clear_memory_root_contents;
 use super::storage::rebuild_raw_memories_file_from_memories;
 use super::storage::sync_rollout_summaries_from_memories;
-use crate::memories::clear_memory_root_contents;
 use crate::memories::ensure_layout;
 use crate::memories::memory_root;
 use crate::memories::raw_memories_file;
@@ -10,6 +10,7 @@ use chrono::Utc;
 use codex_config::types::DEFAULT_MEMORIES_MAX_RAW_MEMORIES_FOR_CONSOLIDATION;
 use codex_protocol::ThreadId;
 use codex_state::Stage1Output;
+use codex_utils_absolute_path::AbsolutePathBuf;
 use pretty_assertions::assert_eq;
 use serde_json::Value;
 use std::path::PathBuf;
@@ -17,8 +18,7 @@ use tempfile::tempdir;
 
 #[test]
 fn memory_root_uses_shared_global_path() {
-    let dir = tempdir().expect("tempdir");
-    let codex_home = dir.path().join("codex");
+    let codex_home = AbsolutePathBuf::current_dir().expect("cwd").join("codex");
     assert_eq!(memory_root(&codex_home), codex_home.join("memories"));
 }
 
@@ -424,10 +424,13 @@ mod phase2 {
     use crate::memories::phase2;
     use crate::memories::raw_memories_file;
     use crate::memories::rollout_summaries_dir;
+    use chrono::Duration as ChronoDuration;
     use chrono::Utc;
     use codex_config::Constrained;
     use codex_login::CodexAuth;
     use codex_protocol::ThreadId;
+    use codex_protocol::permissions::FileSystemSandboxPolicy;
+    use codex_protocol::permissions::NetworkSandboxPolicy;
     use codex_protocol::protocol::AskForApproval;
     use codex_protocol::protocol::Op;
     use codex_protocol::protocol::SandboxPolicy;
@@ -467,11 +470,13 @@ mod phase2 {
     impl DispatchHarness {
         async fn new() -> Self {
             let codex_home = tempfile::tempdir().expect("create temp codex home");
-            let mut config = test_config();
+            let mut config = test_config().await;
             config.codex_home =
                 codex_utils_absolute_path::AbsolutePathBuf::from_absolute_path(codex_home.path())
                     .expect("codex home is absolute");
             config.cwd = config.codex_home.clone();
+            config.permissions.file_system_sandbox_policy = FileSystemSandboxPolicy::unrestricted();
+            config.permissions.network_sandbox_policy = NetworkSandboxPolicy::Enabled;
             let config = Arc::new(config);
 
             let state_db = codex_state::StateRuntime::init(
@@ -678,18 +683,57 @@ mod phase2 {
             .expect("get consolidation thread");
         let config_snapshot = subagent.config_snapshot().await;
         pretty_assertions::assert_eq!(config_snapshot.approval_policy, AskForApproval::Never);
-        pretty_assertions::assert_eq!(config_snapshot.cwd, memory_root(&harness.config.codex_home));
-        match config_snapshot.sandbox_policy {
-            SandboxPolicy::WorkspaceWrite { writable_roots, .. } => {
-                assert!(
-                    writable_roots
-                        .iter()
-                        .any(|root| root.as_path() == harness.config.codex_home.as_path()),
-                    "consolidation subagent should have codex_home as writable root"
+        pretty_assertions::assert_eq!(
+            config_snapshot.cwd.as_path(),
+            memory_root(&harness.config.codex_home).as_path()
+        );
+        match &config_snapshot.sandbox_policy {
+            SandboxPolicy::WorkspaceWrite {
+                writable_roots,
+                network_access,
+                ..
+            } => {
+                assert!(!*network_access);
+                pretty_assertions::assert_eq!(
+                    writable_roots.as_slice(),
+                    [memory_root(&harness.config.codex_home)],
+                    "consolidation subagent should only be able to write the memory root"
                 );
             }
             other => panic!("unexpected sandbox policy: {other:?}"),
         }
+        let turn_context = subagent.codex.session.new_default_turn().await;
+        pretty_assertions::assert_eq!(
+            turn_context.file_system_sandbox_policy,
+            FileSystemSandboxPolicy::from_legacy_sandbox_policy(
+                &config_snapshot.sandbox_policy,
+                config_snapshot.cwd.as_path(),
+            ),
+            "consolidation subagent split filesystem policy should match the memory-root legacy policy"
+        );
+        assert!(
+            turn_context
+                .file_system_sandbox_policy
+                .can_write_path_with_cwd(
+                    memory_root(&harness.config.codex_home).as_path(),
+                    config_snapshot.cwd.as_path(),
+                ),
+            "consolidation subagent should be able to write the memory root"
+        );
+        assert!(
+            !turn_context
+                .file_system_sandbox_policy
+                .can_write_path_with_cwd(
+                    harness.config.codex_home.join("config.toml").as_path(),
+                    config_snapshot.cwd.as_path(),
+                ),
+            "consolidation subagent should not inherit codex_home write access"
+        );
+        pretty_assertions::assert_eq!(
+            turn_context.network_sandbox_policy,
+            NetworkSandboxPolicy::Restricted,
+            "consolidation subagent split network policy should preserve no-network sandboxing"
+        );
         subagent.codex.session.ensure_rollout_materialized().await;
         subagent
             .codex
@@ -891,7 +935,7 @@ mod phase2 {
     #[tokio::test]
     async fn dispatch_marks_job_for_retry_when_spawn_agent_fails() {
         let codex_home = tempfile::tempdir().expect("create temp codex home");
-        let mut config = test_config();
+        let mut config = test_config().await;
         config.codex_home =
             codex_utils_absolute_path::AbsolutePathBuf::from_absolute_path(codex_home.path())
                 .expect("codex home is absolute");
@@ -957,6 +1001,28 @@ mod phase2 {
             "stage-1 success should enqueue global consolidation"
         );
 
+        let telepathy_resources = config
+            .codex_home
+            .join("memories_extensions/telepathy/resources");
+        tokio::fs::create_dir_all(&telepathy_resources)
+            .await
+            .expect("create telepathy resources");
+        tokio::fs::write(
+            config
+                .codex_home
+                .join("memories_extensions/telepathy/instructions.md"),
+            "instructions",
+        )
+        .await
+        .expect("write telepathy instructions");
+        let old_file = telepathy_resources.join(format!(
+            "{}-abcd-10min-old.md",
+            (Utc::now() - ChronoDuration::days(8)).format("%Y-%m-%dT%H-%M-%S")
+        ));
+        tokio::fs::write(&old_file, "old resource")
+            .await
+            .expect("write old extension resource");
+
         phase2::run(&session, Arc::clone(&config)).await;
 
         let retry_claim = state_db
@@ -967,6 +1033,12 @@ mod phase2 {
             retry_claim,
             Phase2JobClaimOutcome::SkippedNotDirty,
             "spawn failures should leave the job in retry backoff instead of running"
+        );
+        assert!(
+            tokio::fs::try_exists(&old_file)
+                .await
+                .expect("check old extension resource"),
+            "spawn failures should not prune extension resources before retry"
         );
     }
 }
