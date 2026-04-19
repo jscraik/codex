@@ -1,0 +1,14 @@
+{
+  "npm": {
+    "status": "SKIPPED",
+    "exit_code": ""
+  },
+  "cargo_root": {
+    "status": "SKIPPED",
+    "exit_code": ""
+  },
+  "cargo_src_tauri": {
+    "status": "SKIPPED",
+    "exit_code": ""
+  }
+}

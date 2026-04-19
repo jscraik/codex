@@ -1,0 +1,15 @@
+{
+  "run_id": "current",
+  "commit_sha": "e65ee385793bf0b82cc958b9fc5081f81110706b",
+  "timestamp": "2026-04-07T01:19:13+01:00",
+  "metrics": {
+    "provider": "ripgrep_ast_proxy",
+    "location": "derived/metrics.json"
+  },
+  "loc": {
+    "provider": "tokei",
+    "location": "raw/loc/tokei.json"
+  },
+  "schema_version": "1.0",
+  "validation": "contradiction_checker.py"
+}

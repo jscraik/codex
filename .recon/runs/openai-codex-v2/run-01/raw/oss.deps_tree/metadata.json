@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "probe_id": "oss.deps_tree",
+  "timestamp_start_utc": "2026-04-06T17:49:11.947758+00:00",
+  "timestamp_end_utc": "2026-04-06T17:49:11.947763+00:00",
+  "wall_time_seconds": 0.334285,
+  "command": "scripts/probes/oss_deps_tree.sh",
+  "args": {
+    "raw_args": [
+      "--repo",
+      "/Users/jamiecraik/dev/codex"
+    ],
+    "repo": "/Users/jamiecraik/dev/codex",
+    "out": "/Users/jamiecraik/dev/codex/.recon/runs/openai-codex-v2/run-01/raw/oss.deps_tree"
+  },
+  "exit_code": 0,
+  "exit_signal": null,
+  "retry_count": 0,
+  "stdout_path": "raw/oss.deps_tree/stdout.txt",
+  "stderr_path": "raw/oss.deps_tree/stderr.txt",
+  "artifacts": [
+    "raw/oss.deps_tree/ecosystems.json",
+    "raw/oss.deps_tree/status.txt",
+    "raw/oss.deps_tree/deps_npm.txt"
+  ],
+  "hostname": "Mac-Studio.local",
+  "username": "jamiecraik"
+}

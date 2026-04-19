@@ -1,0 +1,42 @@
+[
+  {
+    "metric": "style_default_usage",
+    "value": 98,
+    "scope": "codex-rs (repo-wide)",
+    "snapshot": "HEAD@unknown",
+    "query": "rg -n --glob '*.rs' 'Style::default\\(' codex-rs",
+    "artifact": "raw/grep/style_default_repo.txt"
+  },
+  {
+    "metric": "style_default_usage",
+    "value": 87,
+    "scope": "codex-rs/tui",
+    "snapshot": "HEAD@unknown",
+    "query": "rg -n --glob '*.rs' 'Style::default\\(' codex-rs/tui",
+    "artifact": "raw/grep/style_default_tui.txt"
+  },
+  {
+    "metric": "skip_serializing_if_option",
+    "value": 423,
+    "scope": "codex-rs (repo-wide)",
+    "snapshot": "HEAD@unknown",
+    "query": "rg -n --glob '*.rs' 'skip_serializing_if = \"Option::is_none\"' codex-rs",
+    "artifact": "raw/grep/serde_skip_repo.txt"
+  },
+  {
+    "metric": "skip_serializing_if_option",
+    "value": 71,
+    "scope": "codex-rs/app-server-protocol/src/protocol/v2.rs",
+    "snapshot": "HEAD@unknown",
+    "query": "rg -n --glob '*.rs' 'skip_serializing_if = \"Option::is_none\"' codex-rs/app-server-protocol/src/protocol/v2.rs",
+    "artifact": "raw/grep/serde_skip_v2.txt"
+  },
+  {
+    "metric": "wildcard_match_arms_naive",
+    "value": 860,
+    "scope": "codex-rs (repo-wide)",
+    "snapshot": "HEAD@unknown",
+    "query": "rg -n --glob '*.rs' '_ =>' codex-rs",
+    "artifact": "raw/grep/wildcard_repo.txt"
+  }
+]

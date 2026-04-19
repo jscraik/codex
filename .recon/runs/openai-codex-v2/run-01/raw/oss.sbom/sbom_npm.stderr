@@ -1,0 +1,1 @@
+SKIPPED: npm sbom requires package-lock.json; pnpm lock detected

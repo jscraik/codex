@@ -1,0 +1,4916 @@
+{
+  "schema_version": "1.0.0",
+  "repo_path": "/Users/jamiecraik/dev/codex",
+  "scanned_at": "2026-04-06T17:49:22.385969+00:00",
+  "status": "ok",
+  "coverage_score": 100,
+  "required_sections": {
+    "problem_and_job": {
+      "detected": true,
+      "evidence_paths": [
+        "quick-xml (title/narrative)",
+        "ratatui (title/narrative)",
+        "codex-execpolicy (title/narrative)",
+        "assert_cmd (title/narrative)",
+        "insta (title/narrative)",
+        "image (title/narrative)",
+        "codex-arg0 (title/narrative)",
+        "tokio (title/narrative)",
+        "codex-api (title/narrative)",
+        "codex-utils-image (title/narrative)",
+        "openssl-sys (title/narrative)",
+        "mcp_test_support (title/narrative)",
+        "codex-collaboration-mode-templates (title/narrative)",
+        "codex-utils-json-to-toml (title/narrative)",
+        "strum (title/narrative)",
+        "codex-cloud-tasks-client (title/narrative)",
+        "indexmap (title/narrative)",
+        "serde_yaml (title/narrative)",
+        "pulldown-cmark (title/narrative)",
+        "csv (title/narrative)",
+        "sys-locale (title/narrative)",
+        "crossterm (title/narrative)",
+        "codex-utils-pty (title/narrative)",
+        "rama-tcp (title/narrative)",
+        "codex-utils-rustls-provider (title/narrative)",
+        "os_info (title/narrative)",
+        "codex-sandboxing (title/narrative)",
+        "dylint_linting (title/narrative)",
+        "codex-utils-readiness (title/narrative)",
+        "env_logger (title/narrative)",
+        "opentelemetry (title/narrative)",
+        "tokio-tungstenite (title/narrative)",
+        "zeroize (title/narrative)",
+        "tungstenite (title/narrative)",
+        "test-log (title/narrative)",
+        "toml (title/narrative)",
+        "tracing-test (title/narrative)",
+        "codex-response-debug-context (title/narrative)",
+        "rama-tls-rustls (title/narrative)",
+        "codex-shell-escalation (title/narrative)",
+        "codex-core-skills (title/narrative)",
+        "codex-utils-home-dir (title/narrative)",
+        "chrono (title/narrative)",
+        "diffy (title/narrative)",
+        "clap_complete (title/narrative)",
+        "icu_provider (title/narrative)",
+        "rama-http (title/narrative)",
+        "tree-sitter (title/narrative)",
+        "opentelemetry-appender-tracing (title/narrative)",
+        "rama-net (title/narrative)",
+        "clippy_utils (title/narrative)",
+        "textwrap (title/narrative)",
+        "two-face (title/narrative)",
+        "iana-time-zone (title/narrative)",
+        "codex-git-utils (title/narrative)",
+        "tokio-util (title/narrative)",
+        "log (title/narrative)",
+        "pathdiff (title/narrative)",
+        "include_dir (title/narrative)",
+        "assert_matches (title/narrative)",
+        "lru (title/narrative)",
+        "codex-feedback (title/narrative)",
+        "opentelemetry_sdk (title/narrative)",
+        "codex-rollout (title/narrative)",
+        "reqwest (title/narrative)",
+        "serde (title/narrative)",
+        "codex-utils-approval-presets (title/narrative)",
+        "allocative (title/narrative)",
+        "codex-utils-fuzzy-match (title/narrative)",
+        "codex-backend-client (title/narrative)",
+        "env-flags (title/narrative)",
+        "codex-responses-api-proxy (title/narrative)",
+        "codex-tools (title/narrative)",
+        "opentelemetry-otlp (title/narrative)",
+        "codex-utils-sleep-inhibitor (title/narrative)",
+        "icu_decimal (title/narrative)",
+        "owo-colors (title/narrative)",
+        "icu_locale_core (title/narrative)",
+        "strum_macros (title/narrative)",
+        "dirs (title/narrative)",
+        "libc (title/narrative)",
+        "codex-analytics (title/narrative)",
+        "codex-rmcp-client (title/narrative)",
+        "lazy_static (title/narrative)",
+        "semver (title/narrative)",
+        "codex-chatgpt (title/narrative)",
+        "codex-tui (title/narrative)",
+        "crossbeam-channel (title/narrative)",
+        "codex-linux-sandbox (title/narrative)",
+        "which (title/narrative)",
+        "codex-model-provider-info (title/narrative)",
+        "ts-rs (title/narrative)",
+        "codex-ollama (title/narrative)",
+        "dunce (title/narrative)",
+        "codex-otel (title/narrative)",
+        "syn (title/narrative)",
+        "anyhow (title/narrative)",
+        "hmac (title/narrative)",
+        "codex-windows-sandbox (title/narrative)",
+        "derive_more (title/narrative)",
+        "multimap (title/narrative)",
+        "codex-features (title/narrative)",
+        "codex-hooks (title/narrative)",
+        "codex-keyring-store (title/narrative)",
+        "async-channel (title/narrative)",
+        "time (title/narrative)",
+        "dotenvy (title/narrative)",
+        "codex-instructions (title/narrative)",
+        "codex-terminal-detection (title/narrative)",
+        "encoding_rs (title/narrative)",
+        "bm25 (title/narrative)",
+        "url (title/narrative)",
+        "notify (title/narrative)",
+        "tokio-stream (title/narrative)",
+        "tempfile (title/narrative)",
+        "toml_edit (title/narrative)",
+        "path-absolutize (title/narrative)",
+        "codex-core (title/narrative)",
+        "pretty_assertions (title/narrative)",
+        "tracing (title/narrative)",
+        "proc-macro2 (title/narrative)",
+        "walkdir (title/narrative)",
+        "codex-config (title/narrative)",
+        "async-trait (title/narrative)",
+        "maplit (title/narrative)",
+        "codex-connectors (title/narrative)",
+        "codex-models-manager (title/narrative)",
+        "tracing-opentelemetry (title/narrative)",
+        "codex-state (title/narrative)",
+        "rama-core (title/narrative)",
+        "landlock (title/narrative)",
+        "eventsource-stream (title/narrative)",
+        "codex-network-proxy (title/narrative)",
+        "axum (title/narrative)",
+        "globset (title/narrative)",
+        "serde_with (title/narrative)",
+        "rustls-pki-types (title/narrative)",
+        "rama-http-backend (title/narrative)",
+        "codex-file-search (title/narrative)",
+        "arc-swap (title/narrative)",
+        "codex-cloud-requirements (title/narrative)",
+        "codex-utils-template (title/narrative)",
+        "portable-pty (title/narrative)",
+        "unicode-width (title/narrative)",
+        "serial_test (title/narrative)",
+        "windows (title/narrative)",
+        "codex-apply-patch (title/narrative)",
+        "rustls-native-certs (title/narrative)",
+        "tree-sitter-bash (title/narrative)",
+        "codex-shell-command (title/narrative)",
+        "codex-utils-path (title/narrative)",
+        "similar (title/narrative)",
+        "codex-utils-cargo-bin (title/narrative)",
+        "seccompiler (title/narrative)",
+        "arboard (title/narrative)",
+        "tokio-test (title/narrative)",
+        "urlencoding (title/narrative)",
+        "codex-v8-poc (title/narrative)",
+        "codex-utils-elapsed (title/narrative)",
+        "chardetng (title/narrative)",
+        "codex-exec (title/narrative)",
+        "once_cell (title/narrative)",
+        "codex-stdio-to-uds (title/narrative)",
+        "codex-utils-output-truncation (title/narrative)",
+        "codex-login (title/narrative)",
+        "bytes (title/narrative)",
+        "sqlx (title/narrative)",
+        "v8 (title/narrative)",
+        "webbrowser (title/narrative)",
+        "codex-cli (title/narrative)",
+        "sentry (title/narrative)",
+        "zstd (title/narrative)",
+        "serde_path_to_error (title/narrative)",
+        "jsonwebtoken (title/narrative)",
+        "thiserror (title/narrative)",
+        "codex-skills (title/narrative)",
+        "regex (title/narrative)",
+        "codex-app-server-test-client (title/narrative)",
+        "codex-code-mode (title/narrative)",
+        "codex-app-server-protocol (title/narrative)",
+        "codex-async-utils (title/narrative)",
+        "ignore (title/narrative)",
+        "codex-backend-openapi-models (title/narrative)",
+        "sse-stream (title/narrative)",
+        "nucleo (title/narrative)",
+        "syntect (title/narrative)",
+        "uuid (title/narrative)",
+        "tracing-subscriber (title/narrative)",
+        "codex-experimental-api-macros (title/narrative)",
+        "codex-ansi-escape (title/narrative)",
+        "codex-process-hardening (title/narrative)",
+        "clap (title/narrative)",
+        "futures (title/narrative)",
+        "http (title/narrative)",
+        "codex-app-server-client (title/narrative)",
+        "supports-color (title/narrative)",
+        "mime_guess (title/narrative)",
+        "rand (title/narrative)",
+        "zip (title/narrative)",
+        "codex-utils-absolute-path (title/narrative)",
+        "tiny_http (title/narrative)",
+        "codex-utils-plugins (title/narrative)",
+        "ratatui-macros (title/narrative)",
+        "itertools (title/narrative)",
+        "tracing-appender (title/narrative)",
+        "codex-utils-cli (title/narrative)",
+        "codex-app-server (title/narrative)",
+        "constant_time_eq (title/narrative)",
+        "gethostname (title/narrative)",
+        "rmcp (title/narrative)",
+        "sha1 (title/narrative)",
+        "oauth2 (title/narrative)",
+        "runfiles (title/narrative)",
+        "rustls (title/narrative)",
+        "unicode-segmentation (title/narrative)",
+        "codex-mcp (title/narrative)",
+        "inventory (title/narrative)",
+        "codex-protocol (title/narrative)",
+        "socket2 (title/narrative)",
+        "codex-utils-string (title/narrative)",
+        "color-eyre (title/narrative)",
+        "uds_windows (title/narrative)",
+        "codex-client (title/narrative)",
+        "ctor (title/narrative)",
+        "regex-lite (title/narrative)",
+        "codex-cloud-tasks (title/narrative)",
+        "core_test_support (title/narrative)",
+        "rama-socks5 (title/narrative)",
+        "wiremock (title/narrative)",
+        "codex-plugin (title/narrative)",
+        "vt100 (title/narrative)",
+        "serde_json (title/narrative)",
+        "wildmatch (title/narrative)",
+        "predicates (title/narrative)",
+        "age (title/narrative)",
+        "ansi-to-tui (title/narrative)",
+        "opentelemetry-semantic-conventions (title/narrative)",
+        "codex-secrets (title/narrative)",
+        "async-stream (title/narrative)",
+        "codex-utils-sandbox-summary (title/narrative)",
+        "keyring (title/narrative)",
+        "schemars (title/narrative)",
+        "codex-mcp-server (title/narrative)",
+        "sha2 (title/narrative)",
+        "dirs-next (title/narrative)",
+        "starlark (title/narrative)",
+        "codex-utils-cache (title/narrative)",
+        "codex-utils-stream-parser (title/narrative)",
+        "codex-cloud-tasks-mock-client (title/narrative)",
+        "codex-lmstudio (title/narrative)",
+        "base64 (title/narrative)",
+        "codex-utils-oss (title/narrative)",
+        "shlex (title/narrative)",
+        "codex-exec-server (title/narrative)",
+        "quote (title/narrative)",
+        "app_test_support (title/narrative)"
+      ]
+    },
+    "success_criteria": {
+      "detected": true,
+      "evidence_paths": [
+        "reqwest (analysis)",
+        "codex-utils-json-to-toml (analysis)",
+        "codex-secrets (analysis)",
+        "codex-state (analysis)",
+        "allocative (analysis)",
+        "anyhow (analysis)",
+        "syn (analysis)",
+        "os_info (analysis)",
+        "iana-time-zone (analysis)",
+        "v8 (analysis)",
+        "codex-instructions (analysis)",
+        "regex (analysis)",
+        "toml (analysis)",
+        "rama-core (analysis)",
+        "derive_more (analysis)",
+        "codex-utils-home-dir (analysis)",
+        "schemars (analysis)",
+        "arboard (analysis)",
+        "serde_yaml (analysis)",
+        "rama-socks5 (analysis)",
+        "tree-sitter (analysis)",
+        "codex-cloud-tasks (analysis)",
+        "eventsource-stream (analysis)",
+        "codex-stdio-to-uds (analysis)",
+        "codex-plugin (analysis)",
+        "rama-http (analysis)",
+        "codex-linux-sandbox (analysis)",
+        "codex-cli (analysis)",
+        "axum (analysis)",
+        "bm25 (analysis)",
+        "rmcp (analysis)",
+        "pretty_assertions (analysis)",
+        "codex-utils-output-truncation (analysis)",
+        "codex-utils-cli (analysis)",
+        "codex-exec-server (analysis)",
+        "webbrowser (analysis)",
+        "rustls-native-certs (analysis)",
+        "dotenvy (analysis)",
+        "async-channel (analysis)",
+        "env_logger (analysis)",
+        "clap (analysis)",
+        "maplit (analysis)",
+        "sqlx (analysis)",
+        "include_dir (analysis)",
+        "codex-response-debug-context (analysis)",
+        "codex-otel (analysis)",
+        "codex-app-server-test-client (analysis)",
+        "codex-utils-oss (analysis)",
+        "rama-net (analysis)",
+        "codex-backend-openapi-models (analysis)",
+        "opentelemetry-appender-tracing (analysis)",
+        "codex-mcp-server (analysis)",
+        "ratatui (analysis)",
+        "codex-mcp (analysis)",
+        "sys-locale (analysis)",
+        "uds_windows (analysis)",
+        "codex-app-server-client (analysis)",
+        "zeroize (analysis)",
+        "ratatui-macros (analysis)",
+        "mcp_test_support (analysis)",
+        "codex-utils-approval-presets (analysis)",
+        "async-trait (analysis)",
+        "codex-execpolicy (analysis)",
+        "codex-api (analysis)",
+        "log (analysis)",
+        "opentelemetry-otlp (analysis)",
+        "ctor (analysis)",
+        "vt100 (analysis)",
+        "codex-analytics (analysis)",
+        "codex-utils-elapsed (analysis)",
+        "walkdir (analysis)",
+        "notify (analysis)",
+        "opentelemetry (analysis)",
+        "rustls-pki-types (analysis)",
+        "tokio-test (analysis)",
+        "bytes (analysis)",
+        "tokio (analysis)",
+        "wiremock (analysis)",
+        "tracing-test (analysis)",
+        "codex-utils-string (analysis)",
+        "ts-rs (analysis)",
+        "codex-utils-cache (analysis)",
+        "codex-apply-patch (analysis)",
+        "core_test_support (analysis)",
+        "icu_decimal (analysis)",
+        "serial_test (analysis)",
+        "futures (analysis)",
+        "icu_provider (analysis)",
+        "codex-hooks (analysis)",
+        "supports-color (analysis)",
+        "app_test_support (analysis)",
+        "sentry (analysis)",
+        "opentelemetry_sdk (analysis)",
+        "owo-colors (analysis)",
+        "once_cell (analysis)",
+        "opentelemetry-semantic-conventions (analysis)",
+        "serde_path_to_error (analysis)",
+        "codex-core-skills (analysis)",
+        "tokio-stream (analysis)",
+        "diffy (analysis)",
+        "codex-v8-poc (analysis)",
+        "codex-client (analysis)",
+        "codex-responses-api-proxy (analysis)",
+        "codex-rmcp-client (analysis)",
+        "codex-ollama (analysis)",
+        "codex-keyring-store (analysis)",
+        "base64 (analysis)",
+        "test-log (analysis)",
+        "codex-utils-sleep-inhibitor (analysis)",
+        "codex-shell-escalation (analysis)",
+        "socket2 (analysis)",
+        "codex-model-provider-info (analysis)",
+        "windows (analysis)",
+        "serde (analysis)",
+        "which (analysis)",
+        "seccompiler (analysis)",
+        "color-eyre (analysis)",
+        "arc-swap (analysis)",
+        "icu_locale_core (analysis)",
+        "codex-feedback (analysis)",
+        "openssl-sys (analysis)",
+        "toml_edit (analysis)",
+        "codex-experimental-api-macros (analysis)",
+        "urlencoding (analysis)",
+        "lru (analysis)",
+        "codex-utils-fuzzy-match (analysis)",
+        "keyring (analysis)",
+        "shlex (analysis)",
+        "codex-async-utils (analysis)",
+        "quote (analysis)",
+        "dylint_linting (analysis)",
+        "nucleo (analysis)",
+        "rama-http-backend (analysis)",
+        "dirs (analysis)",
+        "codex-windows-sandbox (analysis)",
+        "dunce (analysis)",
+        "http (analysis)",
+        "semver (analysis)",
+        "tiny_http (analysis)",
+        "tracing-subscriber (analysis)",
+        "codex-rollout (analysis)",
+        "codex-utils-stream-parser (analysis)",
+        "itertools (analysis)",
+        "codex-tools (analysis)",
+        "assert_cmd (analysis)",
+        "codex-core (analysis)",
+        "wildmatch (analysis)",
+        "encoding_rs (analysis)",
+        "path-absolutize (analysis)",
+        "codex-lmstudio (analysis)",
+        "lazy_static (analysis)",
+        "codex-utils-image (analysis)",
+        "insta (analysis)",
+        "regex-lite (analysis)",
+        "codex-protocol (analysis)",
+        "assert_matches (analysis)",
+        "codex-tui (analysis)",
+        "codex-features (analysis)",
+        "codex-skills (analysis)",
+        "codex-process-hardening (analysis)",
+        "indexmap (analysis)",
+        "mime_guess (analysis)",
+        "runfiles (analysis)",
+        "serde_json (analysis)",
+        "crossterm (analysis)",
+        "codex-cloud-requirements (analysis)",
+        "codex-login (analysis)",
+        "codex-models-manager (analysis)",
+        "codex-terminal-detection (analysis)",
+        "jsonwebtoken (analysis)",
+        "chrono (analysis)",
+        "oauth2 (analysis)",
+        "codex-app-server (analysis)",
+        "codex-exec (analysis)",
+        "time (analysis)",
+        "env-flags (analysis)",
+        "codex-code-mode (analysis)",
+        "rustls (analysis)",
+        "codex-sandboxing (analysis)",
+        "codex-utils-template (analysis)",
+        "zstd (analysis)",
+        "codex-connectors (analysis)",
+        "rand (analysis)",
+        "rama-tcp (analysis)",
+        "codex-cloud-tasks-client (analysis)",
+        "codex-network-proxy (analysis)",
+        "constant_time_eq (analysis)",
+        "proc-macro2 (analysis)",
+        "codex-cloud-tasks-mock-client (analysis)",
+        "codex-app-server-protocol (analysis)",
+        "image (analysis)",
+        "libc (analysis)",
+        "codex-shell-command (analysis)",
+        "multimap (analysis)",
+        "clippy_utils (analysis)",
+        "tempfile (analysis)",
+        "dirs-next (analysis)",
+        "codex-ansi-escape (analysis)",
+        "clap_complete (analysis)",
+        "pulldown-cmark (analysis)",
+        "codex-file-search (analysis)",
+        "tracing (analysis)",
+        "codex-collaboration-mode-templates (analysis)",
+        "codex-arg0 (analysis)",
+        "csv (analysis)",
+        "codex-utils-plugins (analysis)",
+        "hmac (analysis)",
+        "similar (analysis)",
+        "textwrap (analysis)",
+        "strum (analysis)",
+        "codex-git-utils (analysis)",
+        "ignore (analysis)",
+        "codex-utils-absolute-path (analysis)",
+        "uuid (analysis)",
+        "tokio-util (analysis)",
+        "inventory (analysis)",
+        "syntect (analysis)",
+        "chardetng (analysis)",
+        "async-stream (analysis)",
+        "strum_macros (analysis)",
+        "tracing-appender (analysis)",
+        "sha2 (analysis)",
+        "starlark (analysis)",
+        "tungstenite (analysis)",
+        "codex-utils-sandbox-summary (analysis)",
+        "zip (analysis)",
+        "codex-chatgpt (analysis)",
+        "gethostname (analysis)",
+        "landlock (analysis)",
+        "pathdiff (analysis)",
+        "codex-utils-readiness (analysis)",
+        "ansi-to-tui (analysis)",
+        "tree-sitter-bash (analysis)",
+        "codex-utils-cargo-bin (analysis)",
+        "unicode-width (analysis)",
+        "sse-stream (analysis)",
+        "codex-utils-rustls-provider (analysis)",
+        "predicates (analysis)",
+        "tokio-tungstenite (analysis)",
+        "age (analysis)",
+        "crossbeam-channel (analysis)",
+        "codex-utils-pty (analysis)",
+        "serde_with (analysis)",
+        "tracing-opentelemetry (analysis)",
+        "portable-pty (analysis)",
+        "codex-config (analysis)",
+        "codex-backend-client (analysis)",
+        "globset (analysis)",
+        "url (analysis)",
+        "sha1 (analysis)",
+        "codex-utils-path (analysis)",
+        "quick-xml (analysis)",
+        "thiserror (analysis)",
+        "rama-tls-rustls (analysis)",
+        "unicode-segmentation (analysis)",
+        "two-face (analysis)"
+      ]
+    },
+    "scope": {
+      "detected": true,
+      "evidence_paths": [
+        "codex-connectors (version: workspace)",
+        "codex-utils-stream-parser (version: workspace)",
+        "codex-utils-path (version: workspace)",
+        "codex-git-utils (version: workspace)",
+        "predicates (version: 3)",
+        "codex-utils-image (version: workspace)",
+        "core_test_support (version: ../../../core/tests/common)",
+        "codex-response-debug-context (version: workspace)",
+        "landlock (version: 0.4.4)",
+        "tokio (version: workspace)",
+        "notify (version: workspace)",
+        "codex-utils-cli (version: workspace)",
+        "windows (version: 0.58)",
+        "wiremock (version: workspace)",
+        "codex-rmcp-client (version: workspace)",
+        "tracing-subscriber (version: workspace)",
+        "icu_provider (version: workspace)",
+        "rustls-native-certs (version: workspace)",
+        "runfiles (version: workspace)",
+        "age (version: workspace)",
+        "vt100 (version: 0.16.2)",
+        "codex-utils-readiness (version: workspace)",
+        "codex-execpolicy (version: workspace)",
+        "mcp_test_support (version: mcp-server/tests/common)",
+        "toml (version: workspace)",
+        "tiny_http (version: workspace)",
+        "codex-collaboration-mode-templates (version: workspace)",
+        "dylint_linting (version: 5.0.0)",
+        "codex-utils-oss (version: workspace)",
+        "syntect (version: 5)",
+        "codex-model-provider-info (version: workspace)",
+        "zeroize (version: workspace)",
+        "tempfile (version: 3)",
+        "similar (version: workspace)",
+        "mime_guess (version: workspace)",
+        "codex-utils-sleep-inhibitor (version: workspace)",
+        "dirs (version: workspace)",
+        "opentelemetry-otlp (version: workspace)",
+        "codex-api (version: workspace)",
+        "env-flags (version: workspace)",
+        "shlex (version: workspace)",
+        "ts-rs (version: workspace)",
+        "serde_json (version: 1.0)",
+        "unicode-width (version: workspace)",
+        "rama-http-backend (version: =0.3.0-alpha.4)",
+        "codex-app-server (version: workspace)",
+        "codex-process-hardening (version: workspace)",
+        "env_logger (version: workspace)",
+        "codex-utils-pty (version: workspace)",
+        "strum_macros (version: workspace)",
+        "codex-windows-sandbox (version: workspace)",
+        "rama-net (version: =0.3.0-alpha.4)",
+        "codex-tui (version: workspace)",
+        "rmcp (version: workspace)",
+        "codex-exec-server (version: workspace)",
+        "codex-plugin (version: workspace)",
+        "assert_cmd (version: workspace)",
+        "async-trait (version: workspace)",
+        "app_test_support (version: app-server/tests/common)",
+        "ignore (version: workspace)",
+        "ansi-to-tui (version: workspace)",
+        "lazy_static (version: workspace)",
+        "sentry (version: 0.46)",
+        "tungstenite (version: workspace)",
+        "proc-macro2 (version: 1)",
+        "tokio-stream (version: workspace)",
+        "codex-utils-json-to-toml (version: workspace)",
+        "image (version: workspace)",
+        "codex-models-manager (version: workspace)",
+        "log (version: workspace)",
+        "starlark (version: workspace)",
+        "unicode-segmentation (version: workspace)",
+        "codex-async-utils (version: workspace)",
+        "codex-exec (version: workspace)",
+        "codex-lmstudio (version: workspace)",
+        "clap (version: workspace)",
+        "codex-linux-sandbox (version: workspace)",
+        "codex-config (version: workspace)",
+        "constant_time_eq (version: workspace)",
+        "codex-ollama (version: workspace)",
+        "codex-experimental-api-macros (version: workspace)",
+        "codex-sandboxing (version: workspace)",
+        "codex-secrets (version: workspace)",
+        "codex-utils-absolute-path (version: workspace)",
+        "arboard (version: 3)",
+        "codex-app-server-test-client (version: workspace)",
+        "codex-utils-plugins (version: workspace)",
+        "async-stream (version: workspace)",
+        "hmac (version: 0.12.1)",
+        "lru (version: workspace)",
+        "codex-file-search (version: workspace)",
+        "codex-app-server-protocol (version: workspace)",
+        "opentelemetry (version: workspace)",
+        "supports-color (version: workspace)",
+        "tracing-opentelemetry (version: workspace)",
+        "which (version: workspace)",
+        "tokio-test (version: 0.4)",
+        "anyhow (version: 1.0)",
+        "codex-keyring-store (version: workspace)",
+        "tree-sitter-bash (version: workspace)",
+        "codex-cloud-requirements (version: workspace)",
+        "allocative (version: workspace)",
+        "syn (version: 2)",
+        "path-absolutize (version: workspace)",
+        "chrono (version: 0.4.42)",
+        "keyring (version: workspace)",
+        "pretty_assertions (version: workspace)",
+        "codex-state (version: workspace)",
+        "owo-colors (version: workspace)",
+        "codex-code-mode (version: workspace)",
+        "dirs-next (version: 2.0)",
+        "codex-client (version: workspace)",
+        "insta (version: 1.46.3)",
+        "opentelemetry-appender-tracing (version: workspace)",
+        "codex-ansi-escape (version: workspace)",
+        "codex-network-proxy (version: workspace)",
+        "codex-utils-template (version: workspace)",
+        "nucleo (version: workspace)",
+        "time (version: workspace)",
+        "two-face (version: 0.5)",
+        "codex-utils-cache (version: workspace)",
+        "clippy_utils (version: workspace)",
+        "crossbeam-channel (version: workspace)",
+        "codex-cloud-tasks-mock-client (version: workspace)",
+        "eventsource-stream (version: workspace)",
+        "codex-features (version: workspace)",
+        "rama-socks5 (version: =0.3.0-alpha.4)",
+        "codex-utils-approval-presets (version: workspace)",
+        "multimap (version: workspace)",
+        "os_info (version: workspace)",
+        "textwrap (version: workspace)",
+        "codex-instructions (version: workspace)",
+        "codex-utils-string (version: workspace)",
+        "csv (version: workspace)",
+        "quote (version: 1)",
+        "codex-mcp (version: workspace)",
+        "codex-skills (version: workspace)",
+        "codex-feedback (version: workspace)",
+        "jsonwebtoken (version: workspace)",
+        "tree-sitter (version: workspace)",
+        "openssl-sys (version: *)",
+        "codex-utils-sandbox-summary (version: workspace)",
+        "uuid (version: workspace)",
+        "v8 (version: workspace)",
+        "codex-shell-escalation (version: workspace)",
+        "zip (version: workspace)",
+        "portable-pty (version: workspace)",
+        "serial_test (version: 3.2.0)",
+        "codex-app-server-client (version: workspace)",
+        "codex-utils-elapsed (version: workspace)",
+        "wildmatch (version: workspace)",
+        "semver (version: workspace)",
+        "codex-v8-poc (version: v8-poc)",
+        "base64 (version: workspace)",
+        "codex-otel (version: workspace)",
+        "arc-swap (version: workspace)",
+        "codex-utils-fuzzy-match (version: workspace)",
+        "codex-utils-output-truncation (version: workspace)",
+        "sse-stream (version: 0.2.1)",
+        "codex-rollout (version: workspace)",
+        "regex (version: workspace)",
+        "gethostname (version: workspace)",
+        "reqwest (version: workspace)",
+        "tokio-util (version: workspace)",
+        "url (version: workspace)",
+        "bm25 (version: workspace)",
+        "codex-core-skills (version: workspace)",
+        "tracing (version: workspace)",
+        "opentelemetry_sdk (version: workspace)",
+        "futures (version: workspace)",
+        "ratatui (version: workspace)",
+        "tracing-appender (version: workspace)",
+        "urlencoding (version: workspace)",
+        "async-channel (version: workspace)",
+        "rama-core (version: =0.3.0-alpha.4)",
+        "rama-tls-rustls (version: =0.3.0-alpha.4)",
+        "codex-stdio-to-uds (version: workspace)",
+        "strum (version: workspace)",
+        "ctor (version: workspace)",
+        "sha2 (version: workspace)",
+        "diffy (version: workspace)",
+        "regex-lite (version: workspace)",
+        "crossterm (version: workspace)",
+        "pathdiff (version: workspace)",
+        "codex-login (version: workspace)",
+        "itertools (version: workspace)",
+        "indexmap (version: workspace)",
+        "once_cell (version: workspace)",
+        "rand (version: 0.8)",
+        "tracing-test (version: 0.2.5)",
+        "sqlx (version: workspace)",
+        "globset (version: workspace)",
+        "ratatui-macros (version: workspace)",
+        "rama-http (version: =0.3.0-alpha.4)",
+        "codex-apply-patch (version: workspace)",
+        "http (version: workspace)",
+        "zstd (version: workspace)",
+        "derive_more (version: workspace)",
+        "codex-responses-api-proxy (version: workspace)",
+        "schemars (version: workspace)",
+        "rustls-pki-types (version: workspace)",
+        "sys-locale (version: workspace)",
+        "toml_edit (version: workspace)",
+        "codex-utils-cargo-bin (version: workspace)",
+        "codex-arg0 (version: workspace)",
+        "thiserror (version: workspace)",
+        "clap_complete (version: workspace)",
+        "codex-mcp-server (version: workspace)",
+        "webbrowser (version: workspace)",
+        "rustls (version: workspace)",
+        "opentelemetry-semantic-conventions (version: workspace)",
+        "serde_yaml (version: workspace)",
+        "codex-backend-client (version: workspace)",
+        "dotenvy (version: workspace)",
+        "codex-backend-openapi-models (version: ../codex-backend-openapi-models)",
+        "bytes (version: workspace)",
+        "icu_locale_core (version: workspace)",
+        "serde (version: 1.0)",
+        "codex-cloud-tasks-client (version: workspace)",
+        "pulldown-cmark (version: workspace)",
+        "uds_windows (version: 1.1.0)",
+        "codex-hooks (version: workspace)",
+        "chardetng (version: workspace)",
+        "libc (version: workspace)",
+        "dunce (version: 1.0)",
+        "socket2 (version: workspace)",
+        "walkdir (version: workspace)",
+        "rama-tcp (version: =0.3.0-alpha.4)",
+        "codex-utils-rustls-provider (version: workspace)",
+        "codex-tools (version: workspace)",
+        "oauth2 (version: 5)",
+        "codex-chatgpt (version: workspace)",
+        "codex-utils-home-dir (version: workspace)",
+        "icu_decimal (version: workspace)",
+        "quick-xml (version: workspace)",
+        "serde_path_to_error (version: workspace)",
+        "iana-time-zone (version: workspace)",
+        "include_dir (version: workspace)",
+        "serde_with (version: workspace)",
+        "codex-terminal-detection (version: workspace)",
+        "test-log (version: workspace)",
+        "codex-cli (version: cli)",
+        "tokio-tungstenite (version: workspace)",
+        "codex-cloud-tasks (version: ../cloud-tasks)",
+        "codex-shell-command (version: workspace)",
+        "assert_matches (version: 1.5.0)",
+        "codex-protocol (version: ../protocol)",
+        "seccompiler (version: 0.5.0)",
+        "codex-analytics (version: workspace)",
+        "color-eyre (version: workspace)",
+        "codex-core (version: workspace)",
+        "encoding_rs (version: workspace)",
+        "inventory (version: workspace)",
+        "axum (version: workspace)",
+        "maplit (version: 1.0.2)",
+        "sha1 (version: workspace)"
+      ]
+    },
+    "primary_user_journey": {
+      "detected": true,
+      "evidence_paths": [
+        "tracing-appender (narrative)",
+        "indexmap (narrative)",
+        "ratatui (narrative)",
+        "time (narrative)",
+        "tokio (narrative)",
+        "nucleo (narrative)",
+        "urlencoding (narrative)",
+        "codex-utils-pty (narrative)",
+        "strum (narrative)",
+        "starlark (narrative)",
+        "codex-core-skills (narrative)",
+        "codex-mcp-server (narrative)",
+        "codex-collaboration-mode-templates (narrative)",
+        "codex-otel (narrative)",
+        "codex-utils-absolute-path (narrative)",
+        "maplit (narrative)",
+        "clap_complete (narrative)",
+        "quick-xml (narrative)",
+        "socket2 (narrative)",
+        "which (narrative)",
+        "include_dir (narrative)",
+        "serial_test (narrative)",
+        "lru (narrative)",
+        "serde (narrative)",
+        "globset (narrative)",
+        "codex-rmcp-client (narrative)",
+        "sha2 (narrative)",
+        "serde_yaml (narrative)",
+        "codex-cloud-tasks-mock-client (narrative)",
+        "codex-state (narrative)",
+        "codex-v8-poc (narrative)",
+        "constant_time_eq (narrative)",
+        "unicode-width (narrative)",
+        "opentelemetry-semantic-conventions (narrative)",
+        "ctor (narrative)",
+        "windows (narrative)",
+        "app_test_support (narrative)",
+        "codex-utils-fuzzy-match (narrative)",
+        "codex-exec (narrative)",
+        "codex-git-utils (narrative)",
+        "codex-cloud-tasks-client (narrative)",
+        "wildmatch (narrative)",
+        "color-eyre (narrative)",
+        "codex-utils-json-to-toml (narrative)",
+        "codex-lmstudio (narrative)",
+        "rama-core (narrative)",
+        "async-stream (narrative)",
+        "codex-login (narrative)",
+        "base64 (narrative)",
+        "lazy_static (narrative)",
+        "serde_path_to_error (narrative)",
+        "regex-lite (narrative)",
+        "codex-app-server-test-client (narrative)",
+        "assert_matches (narrative)",
+        "codex-backend-client (narrative)",
+        "codex-chatgpt (narrative)",
+        "codex-utils-output-truncation (narrative)",
+        "env_logger (narrative)",
+        "codex-models-manager (narrative)",
+        "walkdir (narrative)",
+        "url (narrative)",
+        "codex-utils-sandbox-summary (narrative)",
+        "openssl-sys (narrative)",
+        "codex-utils-oss (narrative)",
+        "log (narrative)",
+        "textwrap (narrative)",
+        "zip (narrative)",
+        "rama-http (narrative)",
+        "async-trait (narrative)",
+        "codex-cloud-requirements (narrative)",
+        "tiny_http (narrative)",
+        "wiremock (narrative)",
+        "multimap (narrative)",
+        "codex-shell-command (narrative)",
+        "owo-colors (narrative)",
+        "codex-model-provider-info (narrative)",
+        "icu_locale_core (narrative)",
+        "tokio-stream (narrative)",
+        "path-absolutize (narrative)",
+        "sha1 (narrative)",
+        "codex-utils-image (narrative)",
+        "codex-stdio-to-uds (narrative)",
+        "dirs (narrative)",
+        "codex-response-debug-context (narrative)",
+        "codex-backend-openapi-models (narrative)",
+        "supports-color (narrative)",
+        "codex-protocol (narrative)",
+        "codex-features (narrative)",
+        "tracing (narrative)",
+        "codex-experimental-api-macros (narrative)",
+        "codex-utils-plugins (narrative)",
+        "eventsource-stream (narrative)",
+        "rustls (narrative)",
+        "rama-socks5 (narrative)",
+        "jsonwebtoken (narrative)",
+        "diffy (narrative)",
+        "dunce (narrative)",
+        "sentry (narrative)",
+        "webbrowser (narrative)",
+        "codex-app-server-protocol (narrative)",
+        "icu_decimal (narrative)",
+        "codex-file-search (narrative)",
+        "core_test_support (narrative)",
+        "regex (narrative)",
+        "arc-swap (narrative)",
+        "tungstenite (narrative)",
+        "dotenvy (narrative)",
+        "dylint_linting (narrative)",
+        "codex-instructions (narrative)",
+        "codex-linux-sandbox (narrative)",
+        "sqlx (narrative)",
+        "chardetng (narrative)",
+        "tokio-util (narrative)",
+        "codex-core (narrative)",
+        "codex-utils-cargo-bin (narrative)",
+        "codex-api (narrative)",
+        "hmac (narrative)",
+        "codex-config (narrative)",
+        "codex-execpolicy (narrative)",
+        "zstd (narrative)",
+        "landlock (narrative)",
+        "futures (narrative)",
+        "codex-ansi-escape (narrative)",
+        "pathdiff (narrative)",
+        "pretty_assertions (narrative)",
+        "keyring (narrative)",
+        "syn (narrative)",
+        "similar (narrative)",
+        "gethostname (narrative)",
+        "codex-analytics (narrative)",
+        "tree-sitter-bash (narrative)",
+        "codex-utils-home-dir (narrative)",
+        "codex-utils-string (narrative)",
+        "notify (narrative)",
+        "codex-utils-sleep-inhibitor (narrative)",
+        "codex-ollama (narrative)",
+        "codex-utils-template (narrative)",
+        "rand (narrative)",
+        "mime_guess (narrative)",
+        "codex-terminal-detection (narrative)",
+        "http (narrative)",
+        "opentelemetry (narrative)",
+        "thiserror (narrative)",
+        "mcp_test_support (narrative)",
+        "tracing-opentelemetry (narrative)",
+        "vt100 (narrative)",
+        "opentelemetry_sdk (narrative)",
+        "insta (narrative)",
+        "toml_edit (narrative)",
+        "clippy_utils (narrative)",
+        "inventory (narrative)",
+        "oauth2 (narrative)",
+        "rmcp (narrative)",
+        "codex-utils-cli (narrative)",
+        "codex-network-proxy (narrative)",
+        "icu_provider (narrative)",
+        "codex-plugin (narrative)",
+        "v8 (narrative)",
+        "codex-utils-readiness (narrative)",
+        "codex-shell-escalation (narrative)",
+        "env-flags (narrative)",
+        "proc-macro2 (narrative)",
+        "rama-http-backend (narrative)",
+        "dirs-next (narrative)",
+        "codex-app-server (narrative)",
+        "codex-app-server-client (narrative)",
+        "codex-utils-stream-parser (narrative)",
+        "csv (narrative)",
+        "predicates (narrative)",
+        "two-face (narrative)",
+        "derive_more (narrative)",
+        "test-log (narrative)",
+        "sys-locale (narrative)",
+        "codex-apply-patch (narrative)",
+        "tokio-tungstenite (narrative)",
+        "unicode-segmentation (narrative)",
+        "portable-pty (narrative)",
+        "reqwest (narrative)",
+        "codex-client (narrative)",
+        "tracing-subscriber (narrative)",
+        "rustls-pki-types (narrative)",
+        "uds_windows (narrative)",
+        "tempfile (narrative)",
+        "seccompiler (narrative)",
+        "anyhow (narrative)",
+        "syntect (narrative)",
+        "codex-cloud-tasks (narrative)",
+        "serde_json (narrative)",
+        "sse-stream (narrative)",
+        "uuid (narrative)",
+        "codex-code-mode (narrative)",
+        "axum (narrative)",
+        "ratatui-macros (narrative)",
+        "tokio-test (narrative)",
+        "codex-utils-rustls-provider (narrative)",
+        "bm25 (narrative)",
+        "codex-mcp (narrative)",
+        "codex-cli (narrative)",
+        "codex-utils-elapsed (narrative)",
+        "shlex (narrative)",
+        "chrono (narrative)",
+        "codex-tui (narrative)",
+        "codex-utils-path (narrative)",
+        "rustls-native-certs (narrative)",
+        "zeroize (narrative)",
+        "codex-process-hardening (narrative)",
+        "semver (narrative)",
+        "serde_with (narrative)",
+        "ts-rs (narrative)",
+        "codex-secrets (narrative)",
+        "assert_cmd (narrative)",
+        "image (narrative)",
+        "codex-rollout (narrative)",
+        "libc (narrative)",
+        "iana-time-zone (narrative)",
+        "codex-utils-cache (narrative)",
+        "clap (narrative)",
+        "tree-sitter (narrative)",
+        "allocative (narrative)",
+        "crossbeam-channel (narrative)",
+        "encoding_rs (narrative)",
+        "codex-connectors (narrative)",
+        "codex-feedback (narrative)",
+        "rama-tls-rustls (narrative)",
+        "codex-utils-approval-presets (narrative)",
+        "codex-arg0 (narrative)",
+        "os_info (narrative)",
+        "codex-async-utils (narrative)",
+        "ignore (narrative)",
+        "codex-exec-server (narrative)",
+        "codex-hooks (narrative)",
+        "codex-responses-api-proxy (narrative)",
+        "arboard (narrative)",
+        "ansi-to-tui (narrative)",
+        "once_cell (narrative)",
+        "pulldown-cmark (narrative)",
+        "codex-skills (narrative)",
+        "codex-sandboxing (narrative)",
+        "codex-windows-sandbox (narrative)",
+        "rama-net (narrative)",
+        "codex-keyring-store (narrative)",
+        "runfiles (narrative)",
+        "quote (narrative)",
+        "bytes (narrative)",
+        "tracing-test (narrative)",
+        "crossterm (narrative)",
+        "async-channel (narrative)",
+        "codex-tools (narrative)",
+        "opentelemetry-otlp (narrative)",
+        "age (narrative)",
+        "strum_macros (narrative)",
+        "toml (narrative)",
+        "opentelemetry-appender-tracing (narrative)",
+        "itertools (narrative)",
+        "schemars (narrative)",
+        "rama-tcp (narrative)"
+      ]
+    }
+  },
+  "conditional_sections": {
+    "assumption_risk_map": {
+      "detected": false
+    },
+    "opportunity_solution_tree": {
+      "detected": false
+    },
+    "build_breakdown": {
+      "detected": false
+    }
+  },
+  "decisions": [
+    {
+      "name": "app_test_support",
+      "version": "app-server/tests/common",
+      "dependency_type": "workspace",
+      "title": "Use app_test_support for workspace dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-analytics",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-analytics for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core-skills/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-ansi-escape",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-ansi-escape for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-api",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-api for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/response-debug-context/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-app-server",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-app-server for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/cli/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-app-server-client",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-app-server-client for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-app-server-protocol",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-app-server-protocol for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-app-server-test-client",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-app-server-test-client for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/cli/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-apply-patch",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-apply-patch for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-arg0",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-arg0 for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-async-utils",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-async-utils for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/protocol/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-backend-client",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-backend-client for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/cloud-tasks-client/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-chatgpt",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-chatgpt for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-cli",
+      "version": "cli",
+      "dependency_type": "workspace",
+      "title": "Use codex-cli for workspace dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-client",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-client for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/rmcp-client/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-collaboration-mode-templates",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-collaboration-mode-templates for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/models-manager/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-cloud-requirements",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-cloud-requirements for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-cloud-tasks-client",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-cloud-tasks-client for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/cloud-tasks-mock-client/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-cloud-tasks-mock-client",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-cloud-tasks-mock-client for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/cloud-tasks/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-code-mode",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-code-mode for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tools/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-config",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-config for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-connectors",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-connectors for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-core",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-core for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/utils/sandbox-summary/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-core-skills",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-core-skills for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-exec",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-exec for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/cli/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-exec-server",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-exec-server for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/mcp-server/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-execpolicy",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-execpolicy for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/protocol/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-experimental-api-macros",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-experimental-api-macros for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/app-server-protocol/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-features",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-features for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-feedback",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-feedback for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-file-search",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-file-search for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-git-utils",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-git-utils for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-hooks",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-hooks for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-instructions",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-instructions for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core-skills/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-keyring-store",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-keyring-store for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/secrets/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-linux-sandbox",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-linux-sandbox for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/arg0/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-lmstudio",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-lmstudio for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/utils/oss/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-login",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-login for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/utils/plugins/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-mcp",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-mcp for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-mcp-server",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-mcp-server for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/mcp-server/tests/common/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-model-provider-info",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-model-provider-info for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/utils/sandbox-summary/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-models-manager",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-models-manager for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-network-proxy",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-network-proxy for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/sandboxing/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-ollama",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-ollama for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/utils/oss/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-otel",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-otel for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-plugin",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-plugin for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-process-hardening",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-process-hardening for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/responses-api-proxy/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-protocol",
+      "version": "../protocol",
+      "dependency_type": "production",
+      "title": "Use codex-protocol for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/windows-sandbox-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-responses-api-proxy",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-responses-api-proxy for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/cli/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-response-debug-context",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-response-debug-context for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/models-manager/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-rmcp-client",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-rmcp-client for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-rollout",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-rollout for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-sandboxing",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-sandboxing for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-secrets",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-secrets for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-shell-command",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-shell-command for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-shell-escalation",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-shell-escalation for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/arg0/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-skills",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-skills for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core-skills/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-state",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-state for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-stdio-to-uds",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-stdio-to-uds for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/cli/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-terminal-detection",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-terminal-detection for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-tools",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-tools for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-tui",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-tui for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/cloud-tasks/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-utils-absolute-path",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-utils-absolute-path for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/windows-sandbox-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-utils-approval-presets",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-utils-approval-presets for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-utils-cache",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-utils-cache for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/utils/image/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-utils-cargo-bin",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-utils-cargo-bin for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/mcp-server/tests/common/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-utils-cli",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-utils-cli for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-utils-elapsed",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-utils-elapsed for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-utils-fuzzy-match",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-utils-fuzzy-match for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-utils-home-dir",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-utils-home-dir for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/rmcp-client/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-utils-image",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-utils-image for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/protocol/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-utils-json-to-toml",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-utils-json-to-toml for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/mcp-server/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-utils-oss",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-utils-oss for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-utils-output-truncation",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-utils-output-truncation for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/models-manager/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-utils-path",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-utils-path for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/rollout/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-utils-plugins",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-utils-plugins for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/plugin/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-utils-pty",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-utils-pty for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/windows-sandbox-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-utils-readiness",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-utils-readiness for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-utils-rustls-provider",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-utils-rustls-provider for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/network-proxy/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-utils-sandbox-summary",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-utils-sandbox-summary for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-utils-sleep-inhibitor",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-utils-sleep-inhibitor for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-utils-stream-parser",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-utils-stream-parser for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-utils-string",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-utils-string for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/windows-sandbox-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-utils-template",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-utils-template for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/protocol/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-v8-poc",
+      "version": "v8-poc",
+      "dependency_type": "workspace",
+      "title": "Use codex-v8-poc for workspace dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-windows-sandbox",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use codex-windows-sandbox for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "core_test_support",
+      "version": "../../../core/tests/common",
+      "dependency_type": "production",
+      "title": "Use core_test_support for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/mcp-server/tests/common/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "mcp_test_support",
+      "version": "mcp-server/tests/common",
+      "dependency_type": "workspace",
+      "title": "Use mcp_test_support for workspace dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "age",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use age for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/secrets/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "allocative",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use allocative for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/execpolicy-legacy/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "ansi-to-tui",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use ansi-to-tui for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/ansi-escape/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "anyhow",
+      "version": "1.0",
+      "dependency_type": "production",
+      "title": "Use anyhow for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/windows-sandbox-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "arboard",
+      "version": "3",
+      "dependency_type": "workspace",
+      "title": "Use arboard for workspace dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "arc-swap",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use arc-swap for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/exec-server/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "assert_cmd",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use assert_cmd for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/utils/cargo-bin/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "assert_matches",
+      "version": "1.5.0",
+      "dependency_type": "workspace",
+      "title": "Use assert_matches for workspace dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "async-channel",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use async-channel for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "async-stream",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use async-stream for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/ollama/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "async-trait",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use async-trait for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/utils/readiness/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "axum",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use axum for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/rmcp-client/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "base64",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use base64 for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/windows-sandbox-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "bm25",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use bm25 for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "bytes",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use bytes for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/ollama/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "chardetng",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use chardetng for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/protocol/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "chrono",
+      "version": "0.4.42",
+      "dependency_type": "production",
+      "title": "Use chrono for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/windows-sandbox-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "clap",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use clap for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/utils/cli/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "clap_complete",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use clap_complete for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/cli/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "color-eyre",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use color-eyre for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "constant_time_eq",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use constant_time_eq for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/app-server/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "crossbeam-channel",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use crossbeam-channel for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/file-search/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "crossterm",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use crossterm for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "csv",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use csv for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "ctor",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use ctor for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/responses-api-proxy/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "derive_more",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use derive_more for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "diffy",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use diffy for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "dirs",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use dirs for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/utils/home-dir/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "dotenvy",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use dotenvy for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/arg0/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "dunce",
+      "version": "1.0",
+      "dependency_type": "production",
+      "title": "Use dunce for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/windows-sandbox-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "encoding_rs",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use encoding_rs for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/protocol/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "env-flags",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use env-flags for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "env_logger",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use env_logger for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/execpolicy-legacy/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "eventsource-stream",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use eventsource-stream for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/otel/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "futures",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use futures for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/rmcp-client/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "gethostname",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use gethostname for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/otel/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "globset",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use globset for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/network-proxy/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "hmac",
+      "version": "0.12.1",
+      "dependency_type": "production",
+      "title": "Use hmac for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/cloud-requirements/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "http",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use http for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/response-debug-context/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "iana-time-zone",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use iana-time-zone for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "icu_decimal",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use icu_decimal for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/protocol/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "icu_locale_core",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use icu_locale_core for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/protocol/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "icu_provider",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use icu_provider for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/protocol/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "ignore",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use ignore for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/file-search/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "image",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use image for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/utils/image/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "include_dir",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use include_dir for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/skills/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "indexmap",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use indexmap for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "insta",
+      "version": "1.46.3",
+      "dependency_type": "workspace",
+      "title": "Use insta for workspace dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "inventory",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use inventory for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/app-server-protocol/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "itertools",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use itertools for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "jsonwebtoken",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use jsonwebtoken for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/app-server/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "keyring",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use keyring for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/rmcp-client/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "landlock",
+      "version": "0.4.4",
+      "dependency_type": "workspace",
+      "title": "Use landlock for workspace dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "lazy_static",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use lazy_static for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "libc",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use libc for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/shell-escalation/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "log",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use log for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/state/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "lru",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use lru for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/utils/cache/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "maplit",
+      "version": "1.0.2",
+      "dependency_type": "workspace",
+      "title": "Use maplit for workspace dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "mime_guess",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use mime_guess for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/utils/image/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "multimap",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use multimap for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/execpolicy-legacy/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "notify",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use notify for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core/tests/common/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "nucleo",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use nucleo for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/file-search/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "once_cell",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use once_cell for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/shell-command/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "openssl-sys",
+      "version": "*",
+      "dependency_type": "workspace",
+      "title": "Use openssl-sys for workspace dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "opentelemetry",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use opentelemetry for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/otel/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "opentelemetry-appender-tracing",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use opentelemetry-appender-tracing for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/otel/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "opentelemetry-otlp",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use opentelemetry-otlp for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/otel/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "opentelemetry-semantic-conventions",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use opentelemetry-semantic-conventions for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/otel/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "opentelemetry_sdk",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use opentelemetry_sdk for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/otel/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "os_info",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use os_info for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/otel/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "owo-colors",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use owo-colors for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/state/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "path-absolutize",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use path-absolutize for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/utils/absolute-path/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "pathdiff",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use pathdiff for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "portable-pty",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use portable-pty for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/utils/pty/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "predicates",
+      "version": "3",
+      "dependency_type": "workspace",
+      "title": "Use predicates for workspace dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "pretty_assertions",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use pretty_assertions for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/mcp-server/tests/common/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "pulldown-cmark",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use pulldown-cmark for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "quick-xml",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use quick-xml for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/protocol/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "rand",
+      "version": "0.8",
+      "dependency_type": "production",
+      "title": "Use rand for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/windows-sandbox-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "ratatui",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use ratatui for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "ratatui-macros",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use ratatui-macros for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "regex",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use regex for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/shell-command/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "regex-lite",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use regex-lite for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/utils/string/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "reqwest",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use reqwest for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "rmcp",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use rmcp for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "runfiles",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use runfiles for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/utils/cargo-bin/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "rustls",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use rustls for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/utils/rustls-provider/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "rustls-native-certs",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use rustls-native-certs for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/codex-client/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "rustls-pki-types",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use rustls-pki-types for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/codex-client/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "schemars",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use schemars for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/utils/absolute-path/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "seccompiler",
+      "version": "0.5.0",
+      "dependency_type": "workspace",
+      "title": "Use seccompiler for workspace dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "semver",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use semver for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/ollama/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "sentry",
+      "version": "0.46",
+      "dependency_type": "production",
+      "title": "Use sentry for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/feedback/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "serde",
+      "version": "1.0",
+      "dependency_type": "production",
+      "title": "Use serde for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/windows-sandbox-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "serde_json",
+      "version": "1.0",
+      "dependency_type": "production",
+      "title": "Use serde_json for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/windows-sandbox-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "serde_path_to_error",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use serde_path_to_error for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/config/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "serde_with",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use serde_with for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/protocol/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "serde_yaml",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use serde_yaml for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core-skills/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "serial_test",
+      "version": "3.2.0",
+      "dependency_type": "workspace",
+      "title": "Use serial_test for workspace dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "sha1",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use sha1 for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/utils/cache/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "sha2",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use sha2 for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/secrets/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "shlex",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use shlex for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "similar",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use similar for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "socket2",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use socket2 for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/shell-escalation/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "sqlx",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use sqlx for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/state/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "starlark",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use starlark for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/execpolicy-legacy/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "strum",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use strum for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "strum_macros",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use strum_macros for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "supports-color",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use supports-color for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "syntect",
+      "version": "5",
+      "dependency_type": "production",
+      "title": "Use syntect for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "sys-locale",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use sys-locale for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/protocol/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "tempfile",
+      "version": "3",
+      "dependency_type": "production",
+      "title": "Use tempfile for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/windows-sandbox-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "test-log",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use test-log for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "textwrap",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use textwrap for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "thiserror",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use thiserror for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/utils/readiness/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "time",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use time for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/utils/readiness/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "tiny_http",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use tiny_http for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/rmcp-client/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "tokio",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use tokio for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/windows-sandbox-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "tokio-stream",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use tokio-stream for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "tokio-test",
+      "version": "0.4",
+      "dependency_type": "workspace",
+      "title": "Use tokio-test for workspace dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "tokio-tungstenite",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use tokio-tungstenite for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/otel/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "tokio-util",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use tokio-util for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "toml",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use toml for production dependencies",
+      "narrative": "Primary consideration: API design.",
+      "evidence_path": "codex-rs/utils/json-to-toml/Cargo.toml",
+      "alternatives": [
+        {
+          "name": "json5",
+          "rejection_reason": "Architecture or API mismatch with project requirements"
+        },
+        {
+          "name": "yaml",
+          "rejection_reason": "Architecture or API mismatch with project requirements"
+        }
+      ],
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "toml_edit",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use toml_edit for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "tracing",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use tracing for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/utils/sleep-inhibitor/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "tracing-appender",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use tracing-appender for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "tracing-opentelemetry",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use tracing-opentelemetry for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/otel/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "tracing-subscriber",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use tracing-subscriber for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "tracing-test",
+      "version": "0.2.5",
+      "dependency_type": "workspace",
+      "title": "Use tracing-test for workspace dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "tree-sitter",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use tree-sitter for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/shell-command/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "tree-sitter-bash",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use tree-sitter-bash for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/shell-command/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "ts-rs",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use ts-rs for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/utils/absolute-path/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "tungstenite",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use tungstenite for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/codex-api/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "uds_windows",
+      "version": "1.1.0",
+      "dependency_type": "workspace",
+      "title": "Use uds_windows for workspace dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "unicode-segmentation",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use unicode-segmentation for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "unicode-width",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use unicode-width for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "url",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use url for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "urlencoding",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use urlencoding for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/rmcp-client/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "uuid",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use uuid for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "v8",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use v8 for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/v8-poc/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "vt100",
+      "version": "0.16.2",
+      "dependency_type": "workspace",
+      "title": "Use vt100 for workspace dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "walkdir",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use walkdir for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/git-utils/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "webbrowser",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use webbrowser for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "which",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use which for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/shell-command/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "wildmatch",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use wildmatch for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/config/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "zip",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use zip for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core-skills/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "zstd",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use zstd for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/core/tests/common/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "wiremock",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use wiremock for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/ollama/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "zeroize",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use zeroize for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/responses-api-proxy/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-backend-openapi-models",
+      "version": "../codex-backend-openapi-models",
+      "dependency_type": "production",
+      "title": "Use codex-backend-openapi-models for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/backend-client/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "codex-cloud-tasks",
+      "version": "../cloud-tasks",
+      "dependency_type": "production",
+      "title": "Use codex-cloud-tasks for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/cli/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "proc-macro2",
+      "version": "1",
+      "dependency_type": "production",
+      "title": "Use proc-macro2 for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/codex-experimental-api-macros/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "quote",
+      "version": "1",
+      "dependency_type": "production",
+      "title": "Use quote for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/codex-experimental-api-macros/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "syn",
+      "version": "2",
+      "dependency_type": "production",
+      "title": "Use syn for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/codex-experimental-api-macros/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "rama-core",
+      "version": "=0.3.0-alpha.4",
+      "dependency_type": "production",
+      "title": "Use rama-core for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/network-proxy/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "rama-http",
+      "version": "=0.3.0-alpha.4",
+      "dependency_type": "production",
+      "title": "Use rama-http for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/network-proxy/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "rama-http-backend",
+      "version": "=0.3.0-alpha.4",
+      "dependency_type": "production",
+      "title": "Use rama-http-backend for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/network-proxy/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "rama-net",
+      "version": "=0.3.0-alpha.4",
+      "dependency_type": "production",
+      "title": "Use rama-net for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/network-proxy/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "rama-socks5",
+      "version": "=0.3.0-alpha.4",
+      "dependency_type": "production",
+      "title": "Use rama-socks5 for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/network-proxy/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "rama-tcp",
+      "version": "=0.3.0-alpha.4",
+      "dependency_type": "production",
+      "title": "Use rama-tcp for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/network-proxy/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "rama-tls-rustls",
+      "version": "=0.3.0-alpha.4",
+      "dependency_type": "production",
+      "title": "Use rama-tls-rustls for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/network-proxy/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "oauth2",
+      "version": "5",
+      "dependency_type": "production",
+      "title": "Use oauth2 for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/rmcp-client/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "sse-stream",
+      "version": "0.2.1",
+      "dependency_type": "production",
+      "title": "Use sse-stream for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/rmcp-client/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "two-face",
+      "version": "0.5",
+      "dependency_type": "production",
+      "title": "Use two-face for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/tui/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "windows",
+      "version": "0.58",
+      "dependency_type": "production",
+      "title": "Use windows for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/windows-sandbox-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "dirs-next",
+      "version": "2.0",
+      "dependency_type": "production",
+      "title": "Use dirs-next for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "codex-rs/windows-sandbox-rs/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "clippy_utils",
+      "version": "workspace",
+      "dependency_type": "production",
+      "title": "Use clippy_utils for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "tools/argument-comment-lint/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    },
+    {
+      "name": "dylint_linting",
+      "version": "5.0.0",
+      "dependency_type": "production",
+      "title": "Use dylint_linting for production dependencies",
+      "narrative": "No specific alternatives identified. This appears to be a standard choice for this category.",
+      "evidence_path": "tools/argument-comment-lint/Cargo.toml",
+      "analysis": {
+        "popularity_tier": "unknown",
+        "maintenance_status": "unknown",
+        "license_compatibility": "unknown",
+        "typescript_support": "unknown",
+        "bundle_size_kb": null
+      }
+    }
+  ]
+}

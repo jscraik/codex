@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "probe_id": "oss.ipc_validate",
+  "timestamp_start_utc": "2026-04-06T17:49:12.727564+00:00",
+  "timestamp_end_utc": "2026-04-06T17:49:12.727568+00:00",
+  "wall_time_seconds": 0.01991,
+  "command": "scripts/probes/oss_ipc_validate.py",
+  "args": {
+    "raw_args": [
+      "--repo",
+      "/Users/jamiecraik/dev/codex"
+    ],
+    "repo": "/Users/jamiecraik/dev/codex",
+    "out": "/Users/jamiecraik/dev/codex/.recon/runs/openai-codex-v2/run-01/raw/oss.ipc_validate"
+  },
+  "exit_code": 0,
+  "exit_signal": null,
+  "retry_count": 0,
+  "stdout_path": "raw/oss.ipc_validate/stdout.txt",
+  "stderr_path": "raw/oss.ipc_validate/stderr.txt",
+  "artifacts": [
+    "raw/oss.ipc_validate/status.txt"
+  ],
+  "hostname": "Mac-Studio.local",
+  "username": "jamiecraik"
+}

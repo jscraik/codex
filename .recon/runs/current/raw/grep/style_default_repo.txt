@@ -1,0 +1,98 @@
+codex-rs/cloud-tasks/src/ui.rs:208:            base.style(Style::default().add_modifier(Modifier::DIM))
+codex-rs/cloud-tasks/src/ui.rs:224:        .highlight_style(Style::default().bold());
+codex-rs/cloud-tasks/src/ui.rs:226:        list = list.style(Style::default().add_modifier(Modifier::DIM));
+codex-rs/cloud-tasks/src/ui.rs:698:            Style::default().fg(Color::Cyan),
+codex-rs/cloud-tasks/src/ui.rs:726:            Style::default()
+codex-rs/cloud-tasks/src/ui.rs:762:            Style::default()
+codex-rs/cloud-tasks/src/ui.rs:770:            Style::default().add_modifier(Modifier::DIM),
+codex-rs/cloud-tasks/src/ui.rs:776:            Style::default().fg(Color::Green),
+codex-rs/cloud-tasks/src/ui.rs:782:            Style::default().fg(Color::Red),
+codex-rs/cloud-tasks/src/ui.rs:988:        .highlight_style(Style::default().bold())
+codex-rs/cloud-tasks/src/ui.rs:1043:        .highlight_style(Style::default().bold())
+codex-rs/tui/src/markdown_render.rs:201:            current_line_style: Style::default(),
+codex-rs/tui/src/onboarding/auth.rs:350:                    .style(Style::default().add_modifier(Modifier::DIM))
+codex-rs/tui/src/onboarding/auth.rs:559:                    .border_style(Style::default().fg(Color::Cyan)),
+codex-rs/tui/src/render/highlight.rs:483:    let mut rt_style = Style::default();
+codex-rs/tui/src/render/highlight.rs:807:                    Style::default(),
+codex-rs/tui/src/style.rs:19:        Some(bg) => Style::default().bg(user_message_bg(bg)),
+codex-rs/tui/src/style.rs:20:        None => Style::default(),
+codex-rs/tui/src/style.rs:26:        Some(bg) => Style::default().bg(proposed_plan_bg(bg)),
+codex-rs/tui/src/style.rs:27:        None => Style::default(),
+codex-rs/tui/src/diff_render.rs:1144:            .map_or_else(Style::default, |bg| Style::default().bg(bg)),
+codex-rs/tui/src/diff_render.rs:1147:            .map_or_else(Style::default, |bg| Style::default().bg(bg)),
+codex-rs/tui/src/diff_render.rs:1148:        DiffLineType::Context => Style::default(),
+codex-rs/tui/src/diff_render.rs:1153:    Style::default()
+codex-rs/tui/src/diff_render.rs:1206:            Style::default().fg(light_gutter_fg(color_level))
+codex-rs/tui/src/diff_render.rs:1209:            Style::default().fg(light_gutter_fg(color_level))
+codex-rs/tui/src/diff_render.rs:1211:        (DiffTheme::Light, DiffLineType::Insert, Some(level)) => Style::default()
+codex-rs/tui/src/diff_render.rs:1214:        (DiffTheme::Light, DiffLineType::Delete, Some(level)) => Style::default()
+codex-rs/tui/src/diff_render.rs:1230:        DiffTheme::Light => Style::default().fg(Color::Green),
+codex-rs/tui/src/diff_render.rs:1242:        DiffTheme::Light => Style::default().fg(Color::Red),
+codex-rs/tui/src/diff_render.rs:1264:        (_, DiffColorLevel::Ansi16, _) => Style::default().fg(Color::Green),
+codex-rs/tui/src/diff_render.rs:1266:        | (DiffTheme::Light, DiffColorLevel::Ansi256, Some(bg)) => Style::default().bg(bg),
+codex-rs/tui/src/diff_render.rs:1269:            Style::default().fg(Color::Green).bg(bg)
+codex-rs/tui/src/diff_render.rs:1272:        | (DiffTheme::Light, DiffColorLevel::Ansi256, None) => Style::default(),
+codex-rs/tui/src/diff_render.rs:1274:        | (DiffTheme::Dark, DiffColorLevel::Ansi256, None) => Style::default().fg(Color::Green),
+codex-rs/tui/src/diff_render.rs:1288:        (_, DiffColorLevel::Ansi16, _) => Style::default().fg(Color::Red),
+codex-rs/tui/src/diff_render.rs:1290:        | (DiffTheme::Light, DiffColorLevel::Ansi256, Some(bg)) => Style::default().bg(bg),
+codex-rs/tui/src/diff_render.rs:1293:            Style::default().fg(Color::Red).bg(bg)
+codex-rs/tui/src/diff_render.rs:1296:        | (DiffTheme::Light, DiffColorLevel::Ansi256, None) => Style::default(),
+codex-rs/tui/src/diff_render.rs:1298:        | (DiffTheme::Dark, DiffColorLevel::Ansi256, None) => Style::default().fg(Color::Red),
+codex-rs/tui/src/diff_render.rs:1303:    Style::default().add_modifier(Modifier::DIM)
+codex-rs/tui/src/diff_render.rs:1853:            Style::default().bg(rgb_color(DARK_TC_ADD_LINE_BG_RGB))
+codex-rs/tui/src/diff_render.rs:1860:            Style::default().bg(rgb_color(DARK_TC_DEL_LINE_BG_RGB))
+codex-rs/tui/src/diff_render.rs:1887:            Style::default().bg(indexed_color(DARK_256_ADD_LINE_BG_IDX))
+codex-rs/tui/src/diff_render.rs:1894:            Style::default().bg(indexed_color(DARK_256_DEL_LINE_BG_IDX))
+codex-rs/tui/src/diff_render.rs:1921:            Style::default().bg(rgb_color((1, 2, 3)))
+codex-rs/tui/src/diff_render.rs:1925:            Style::default().bg(rgb_color((4, 5, 6)))
+codex-rs/tui/src/diff_render.rs:1941:            Style::default().bg(indexed_color(/*index*/ 22))
+codex-rs/tui/src/diff_render.rs:1945:            Style::default().bg(indexed_color(DARK_256_DEL_LINE_BG_IDX))
+codex-rs/tui/src/diff_render.rs:1974:            Style::default()
+codex-rs/tui/src/diff_render.rs:1981:            Style::default()
+codex-rs/tui/src/diff_render.rs:1989:            Style::default().fg(Color::Black)
+codex-rs/tui/src/diff_render.rs:1997:            Style::default().fg(Color::Black)
+codex-rs/tui/src/diff_render.rs:2009:            Style::default()
+codex-rs/tui/src/diff_render.rs:2013:            Style::default()
+codex-rs/tui/src/diff_render.rs:2024:            Style::default().bg(rgb_color(LIGHT_TC_ADD_LINE_BG_RGB))
+codex-rs/tui/src/diff_render.rs:2031:            Style::default().bg(rgb_color(LIGHT_TC_DEL_LINE_BG_RGB))
+codex-rs/tui/src/diff_render.rs:2039:            Style::default()
+codex-rs/tui/src/diff_render.rs:2049:            Style::default()
+codex-rs/tui/src/diff_render.rs:2075:            Style::default()
+codex-rs/tui/src/diff_render.rs:2081:            Style::default()
+codex-rs/tui/src/diff_render.rs:2262:        let style_a = Style::default().fg(Color::Red);
+codex-rs/tui/src/diff_render.rs:2263:        let style_b = Style::default().fg(Color::Blue);
+codex-rs/tui/src/diff_render.rs:2285:        let style = Style::default().fg(Color::Green);
+codex-rs/tui/src/custom_terminal.rs:748:        previous.set_string(0, 0, "中文", Style::default());
+codex-rs/tui/src/custom_terminal.rs:749:        next.set_string(0, 0, "中", Style::default());
+codex-rs/tui/src/shimmer.rs:59:                Style::default()
+codex-rs/tui/src/shimmer.rs:74:        Style::default().add_modifier(Modifier::DIM)
+codex-rs/tui/src/shimmer.rs:76:        Style::default()
+codex-rs/tui/src/shimmer.rs:78:        Style::default().add_modifier(Modifier::BOLD)
+codex-rs/tui/src/key_hint.rs:95:    Style::default().dim()
+codex-rs/tui/src/pager_overlay.rs:492:                        style: Style::default(),
+codex-rs/tui/src/selection_list.rs:30:        Style::default().cyan()
+codex-rs/tui/src/selection_list.rs:32:        Style::default().dim()
+codex-rs/tui/src/selection_list.rs:34:        Style::default()
+codex-rs/tui/src/history_cell.rs:413:        let summary_style = Style::default().dim().italic();
+codex-rs/tui/src/history_cell.rs:1247:            Style::default(),
+codex-rs/tui/src/history_cell.rs:1800:        .style(Style::default().add_modifier(Modifier::DIM)),
+codex-rs/tui/src/history_cell.rs:2255:                Style::default(),
+codex-rs/tui/src/history_cell.rs:2271:                    Style::default().fg(Color::Cyan),
+codex-rs/tui/src/history_cell.rs:2284:                    Style::default().fg(Color::Cyan),
+codex-rs/tui/src/history_cell.rs:2292:                        Style::default().fg(Color::Cyan),
+codex-rs/tui/src/history_cell.rs:2298:                        Style::default().fg(Color::Cyan),
+codex-rs/tui/src/history_cell.rs:2312:                Style::default().fg(Color::Cyan).add_modifier(Modifier::DIM),
+codex-rs/tui/src/history_cell.rs:2448:                StepStatus::Completed => ("✔ ", Style::default().crossed_out().dim()),
+codex-rs/tui/src/history_cell.rs:2449:                StepStatus::InProgress => ("□ ", Style::default().cyan().bold()),
+codex-rs/tui/src/history_cell.rs:2450:                StepStatus::Pending => ("□ ", Style::default().dim()),
+codex-rs/tui/src/chatwidget.rs:9851:        let placeholder_style = Style::default().add_modifier(Modifier::DIM | Modifier::ITALIC);
+codex-rs/tui/src/bottom_pane/selection_popup_common.rs:300:                span.style = Style::default().fg(Color::Cyan).bold();
+codex-rs/tui/src/bottom_pane/selection_popup_common.rs:724:                span.style = Style::default().fg(Color::Cyan).bold();
+codex-rs/tui/src/bottom_pane/chat_composer.rs:3743:                    ratatui::style::Style::default()
+codex-rs/tui/src/bottom_pane/textarea.rs:1324:        self.render_lines(area, buf, &lines, 0..lines.len(), Style::default());
+codex-rs/tui/src/bottom_pane/textarea.rs:1338:        self.render_lines(area, buf, &lines, start..end, Style::default());
+codex-rs/tui/src/bottom_pane/list_selection_view.rs:1213:                    style: Style::default().bg(Color::Blue),
+codex-rs/tui/src/bottom_pane/list_selection_view.rs:1775:                    .set_style(Style::default().bg(Color::Red));
+codex-rs/tui/src/bottom_pane/list_selection_view.rs:1834:                    .set_style(Style::default().bg(Color::Red));
+codex-rs/tui/src/oss_selection.rs:126:                Span::styled(status_symbol, Style::default().fg(status_color)),
+codex-rs/tui/src/insert_history.rs:546:            Span::styled("1. ", ratatui::style::Style::default().fg(Color::LightBlue)),

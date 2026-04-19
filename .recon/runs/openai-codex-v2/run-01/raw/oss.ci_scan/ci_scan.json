@@ -1,0 +1,187 @@
+{
+  "workflows": [
+    {
+      "file": "/Users/jamiecraik/dev/codex/.github/workflows/bazel.yml",
+      "matches": {
+        "cargo_audit": [],
+        "npm_audit": [],
+        "sbom": [],
+        "cargo_locked": []
+      }
+    },
+    {
+      "file": "/Users/jamiecraik/dev/codex/.github/workflows/blob-size-policy.yml",
+      "matches": {
+        "cargo_audit": [],
+        "npm_audit": [],
+        "sbom": [],
+        "cargo_locked": []
+      }
+    },
+    {
+      "file": "/Users/jamiecraik/dev/codex/.github/workflows/cargo-deny.yml",
+      "matches": {
+        "cargo_audit": [],
+        "npm_audit": [],
+        "sbom": [],
+        "cargo_locked": []
+      }
+    },
+    {
+      "file": "/Users/jamiecraik/dev/codex/.github/workflows/ci.yml",
+      "matches": {
+        "cargo_audit": [],
+        "npm_audit": [],
+        "sbom": [],
+        "cargo_locked": []
+      }
+    },
+    {
+      "file": "/Users/jamiecraik/dev/codex/.github/workflows/cla.yml",
+      "matches": {
+        "cargo_audit": [],
+        "npm_audit": [],
+        "sbom": [],
+        "cargo_locked": []
+      }
+    },
+    {
+      "file": "/Users/jamiecraik/dev/codex/.github/workflows/close-stale-contributor-prs.yml",
+      "matches": {
+        "cargo_audit": [],
+        "npm_audit": [],
+        "sbom": [],
+        "cargo_locked": []
+      }
+    },
+    {
+      "file": "/Users/jamiecraik/dev/codex/.github/workflows/codespell.yml",
+      "matches": {
+        "cargo_audit": [],
+        "npm_audit": [],
+        "sbom": [],
+        "cargo_locked": []
+      }
+    },
+    {
+      "file": "/Users/jamiecraik/dev/codex/.github/workflows/issue-deduplicator.yml",
+      "matches": {
+        "cargo_audit": [],
+        "npm_audit": [],
+        "sbom": [],
+        "cargo_locked": []
+      }
+    },
+    {
+      "file": "/Users/jamiecraik/dev/codex/.github/workflows/issue-labeler.yml",
+      "matches": {
+        "cargo_audit": [],
+        "npm_audit": [],
+        "sbom": [],
+        "cargo_locked": []
+      }
+    },
+    {
+      "file": "/Users/jamiecraik/dev/codex/.github/workflows/rust-ci-full.yml",
+      "matches": {
+        "cargo_audit": [],
+        "npm_audit": [],
+        "sbom": [],
+        "cargo_locked": [
+          "--locked"
+        ]
+      }
+    },
+    {
+      "file": "/Users/jamiecraik/dev/codex/.github/workflows/rust-ci.yml",
+      "matches": {
+        "cargo_audit": [],
+        "npm_audit": [],
+        "sbom": [],
+        "cargo_locked": [
+          "--locked"
+        ]
+      }
+    },
+    {
+      "file": "/Users/jamiecraik/dev/codex/.github/workflows/rust-release-argument-comment-lint.yml",
+      "matches": {
+        "cargo_audit": [],
+        "npm_audit": [],
+        "sbom": [],
+        "cargo_locked": [
+          "--locked"
+        ]
+      }
+    },
+    {
+      "file": "/Users/jamiecraik/dev/codex/.github/workflows/rust-release-prepare.yml",
+      "matches": {
+        "cargo_audit": [],
+        "npm_audit": [],
+        "sbom": [],
+        "cargo_locked": []
+      }
+    },
+    {
+      "file": "/Users/jamiecraik/dev/codex/.github/workflows/rust-release-windows.yml",
+      "matches": {
+        "cargo_audit": [],
+        "npm_audit": [],
+        "sbom": [
+          "osv"
+        ],
+        "cargo_locked": []
+      }
+    },
+    {
+      "file": "/Users/jamiecraik/dev/codex/.github/workflows/rust-release-zsh.yml",
+      "matches": {
+        "cargo_audit": [],
+        "npm_audit": [],
+        "sbom": [],
+        "cargo_locked": []
+      }
+    },
+    {
+      "file": "/Users/jamiecraik/dev/codex/.github/workflows/rust-release.yml",
+      "matches": {
+        "cargo_audit": [],
+        "npm_audit": [],
+        "sbom": [],
+        "cargo_locked": []
+      }
+    },
+    {
+      "file": "/Users/jamiecraik/dev/codex/.github/workflows/rusty-v8-release.yml",
+      "matches": {
+        "cargo_audit": [],
+        "npm_audit": [],
+        "sbom": [],
+        "cargo_locked": []
+      }
+    },
+    {
+      "file": "/Users/jamiecraik/dev/codex/.github/workflows/sdk.yml",
+      "matches": {
+        "cargo_audit": [],
+        "npm_audit": [],
+        "sbom": [],
+        "cargo_locked": []
+      }
+    },
+    {
+      "file": "/Users/jamiecraik/dev/codex/.github/workflows/v8-canary.yml",
+      "matches": {
+        "cargo_audit": [],
+        "npm_audit": [],
+        "sbom": [],
+        "cargo_locked": []
+      }
+    }
+  ],
+  "missing_gates": [
+    "cargo_audit",
+    "npm_audit"
+  ]
+}

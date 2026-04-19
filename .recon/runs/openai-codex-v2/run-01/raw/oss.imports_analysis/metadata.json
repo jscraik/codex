@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "probe_id": "oss.imports_analysis",
+  "timestamp_start_utc": "2026-04-06T17:49:12.706133+00:00",
+  "timestamp_end_utc": "2026-04-06T17:49:12.706140+00:00",
+  "wall_time_seconds": 0.426687,
+  "command": "scripts/probes/oss_imports_analysis.sh",
+  "args": {
+    "raw_args": [
+      "--repo",
+      "/Users/jamiecraik/dev/codex"
+    ],
+    "repo": "/Users/jamiecraik/dev/codex",
+    "out": "/Users/jamiecraik/dev/codex/.recon/runs/openai-codex-v2/run-01/raw/oss.imports_analysis"
+  },
+  "exit_code": 0,
+  "exit_signal": null,
+  "retry_count": 0,
+  "stdout_path": "raw/oss.imports_analysis/stdout.txt",
+  "stderr_path": "raw/oss.imports_analysis/stderr.txt",
+  "artifacts": [
+    "raw/oss.imports_analysis/imports_analysis.json",
+    "raw/oss.imports_analysis/imports_analysis_report.md",
+    "raw/oss.imports_analysis/status.txt"
+  ],
+  "hostname": "Mac-Studio.local",
+  "username": "jamiecraik"
+}

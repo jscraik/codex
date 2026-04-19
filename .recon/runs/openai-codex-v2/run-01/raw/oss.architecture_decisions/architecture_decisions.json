@@ -1,0 +1,700 @@
+{
+  "schema_version": "1.0.0",
+  "probe_id": "oss.architecture_decisions",
+  "repo_path": "/Users/jamiecraik/dev/codex",
+  "scanned_at": "2026-04-06T17:49:04.747592+00:00",
+  "status": "informal_evidence",
+  "scanned_paths": [
+    "README.md",
+    "docs/**/*.md",
+    "**/README.md"
+  ],
+  "formal_adrs_found": false,
+  "files_found": [
+    "README.md",
+    "docs/tui-stream-chunking-tuning.md",
+    "docs/exit-confirmation-prompt-design.md",
+    "docs/authentication.md",
+    "docs/license.md",
+    "docs/agents_md.md",
+    "docs/sandbox.md",
+    "docs/open-source-fund.md",
+    "docs/install.md",
+    "docs/tui-alternate-screen.md",
+    "docs/example-config.md",
+    "docs/tui-stream-chunking-validation.md",
+    "docs/execpolicy.md",
+    "docs/getting-started.md",
+    "docs/config.md",
+    "docs/tui-request-user-input.md",
+    "docs/skills.md",
+    "docs/CLA.md",
+    "docs/contributing.md",
+    "docs/tui-stream-chunking-review.md",
+    "docs/exec.md",
+    "docs/js_repl.md",
+    "docs/slash_commands.md",
+    "docs/tui-chat-composer.md",
+    "codex-cli/README.md",
+    "codex-rs/README.md",
+    ".devcontainer/README.md",
+    ".github/workflows/README.md",
+    "sdk/python/README.md",
+    "sdk/typescript/README.md",
+    "sdk/python-runtime/README.md",
+    "sdk/python/examples/README.md",
+    "codex-rs/ansi-escape/README.md",
+    "codex-rs/network-proxy/README.md",
+    "codex-rs/tools/README.md",
+    "codex-rs/core/README.md",
+    "codex-rs/process-hardening/README.md",
+    "codex-rs/linux-sandbox/README.md",
+    "codex-rs/exec-server/README.md",
+    "codex-rs/otel/README.md",
+    "codex-rs/protocol/README.md",
+    "codex-rs/app-server/README.md",
+    "codex-rs/app-server-client/README.md",
+    "codex-rs/app-server-test-client/README.md",
+    "codex-rs/execpolicy/README.md",
+    "codex-rs/codex-client/README.md",
+    "codex-rs/execpolicy-legacy/README.md",
+    "codex-rs/chatgpt/README.md",
+    "codex-rs/codex-api/README.md",
+    "codex-rs/stdio-to-uds/README.md",
+    "codex-rs/shell-escalation/README.md",
+    "codex-rs/responses-api-proxy/README.md",
+    "codex-rs/file-search/README.md",
+    "codex-rs/git-utils/README.md",
+    "codex-rs/debug-client/README.md",
+    "codex-rs/responses-api-proxy/npm/README.md",
+    "codex-rs/apply-patch/tests/fixtures/scenarios/README.md",
+    "codex-rs/utils/cargo-bin/README.md",
+    "codex-rs/utils/pty/README.md",
+    "codex-rs/utils/template/README.md",
+    "codex-rs/utils/stream-parser/README.md",
+    "codex-rs/core/src/config_loader/README.md",
+    "codex-rs/core/src/memories/README.md",
+    "tools/argument-comment-lint/README.md",
+    "codex-cli/scripts/README.md"
+  ],
+  "coverage_score": 100,
+  "required_sections": {
+    "problem_and_job": {
+      "detected": true,
+      "evidence": [
+        {
+          "path": "docs/tui-alternate-screen.md",
+          "header": "The Problem",
+          "line_number": 7,
+          "excerpt": ""
+        },
+        {
+          "path": "docs/tui-stream-chunking-review.md",
+          "header": "Problem",
+          "line_number": 6,
+          "excerpt": "Streaming output can arrive faster than a one-line-per-tick animation can show it. If commit speed stays fixed while arrival speed spikes, queued lines grow"
+        },
+        {
+          "path": "docs/tui-chat-composer.md",
+          "header": "What problem is being solved?",
+          "line_number": 14,
+          "excerpt": "On some terminals (notably on Windows via `crossterm`), _bracketed paste_ is not reliably surfaced as a single paste event. Instead, pasting multi-line content can show up as a rapid sequence of"
+        },
+        {
+          "path": "codex-rs/README.md",
+          "header": "Model Context Protocol Support",
+          "line_number": 29,
+          "excerpt": ""
+        },
+        {
+          "path": "codex-rs/otel/README.md",
+          "header": "Trace context",
+          "line_number": 125,
+          "excerpt": "Trace propagation helpers remain separate from the session event emitter:"
+        },
+        {
+          "path": "codex-rs/app-server/README.md",
+          "header": "Example: Clean background terminals",
+          "line_number": 578,
+          "excerpt": "Use `thread/backgroundTerminals/clean` to terminate all running background terminals associated with a thread. This method is experimental and requires `capabilities.experimentalApi = true`."
+        },
+        {
+          "path": "codex-rs/app-server-test-client/README.md",
+          "header": "2) Start websocket app-server in background",
+          "line_number": 12,
+          "excerpt": "cargo run -p codex-app-server-test-client -- \\ --codex-bin ./target/debug/codex \\"
+        },
+        {
+          "path": "codex-rs/utils/pty/README.md",
+          "header": "});",
+          "line_number": 52,
+          "excerpt": "``` Swap in `spawn_pipe_process` for a non-TTY subprocess; the rest of the API stays the same."
+        },
+        {
+          "path": "codex-rs/utils/stream-parser/README.md",
+          "header": "}",
+          "line_number": 66,
+          "excerpt": "```"
+        }
+      ]
+    },
+    "success_criteria": {
+      "detected": true,
+      "evidence": [
+        {
+          "path": "docs/tui-stream-chunking-tuning.md",
+          "header": "Tuning goals",
+          "line_number": 25,
+          "excerpt": "Tune for all three goals together:"
+        },
+        {
+          "path": "docs/tui-stream-chunking-review.md",
+          "header": "Design goals",
+          "line_number": 12,
+          "excerpt": "- Preserve existing baseline behavior under normal load. - Reduce display lag when backlog builds."
+        },
+        {
+          "path": "docs/tui-stream-chunking-review.md",
+          "header": "Non-goals",
+          "line_number": 20,
+          "excerpt": "- The policy does not schedule animation ticks. - The policy does not depend on upstream source identity."
+        },
+        {
+          "path": "codex-rs/utils/pty/README.md",
+          "header": "});",
+          "line_number": 52,
+          "excerpt": "``` Swap in `spawn_pipe_process` for a non-TTY subprocess; the rest of the API stays the same."
+        },
+        {
+          "path": "codex-rs/utils/stream-parser/README.md",
+          "header": "}",
+          "line_number": 66,
+          "excerpt": "```"
+        }
+      ]
+    },
+    "scope": {
+      "detected": true,
+      "evidence": [
+        {
+          "path": "docs/tui-stream-chunking-tuning.md",
+          "header": "Scope",
+          "line_number": 6,
+          "excerpt": "Use this guide when adjusting queue-pressure thresholds and hysteresis windows in `codex-rs/tui/src/streaming/chunking.rs`, and baseline commit cadence in"
+        },
+        {
+          "path": "docs/tui-stream-chunking-validation.md",
+          "header": "Scope",
+          "line_number": 6,
+          "excerpt": "The goal is to verify two properties from runtime traces:"
+        },
+        {
+          "path": "codex-rs/network-proxy/README.md",
+          "header": "Use exact hosts or scoped wildcards like `*.openai.com` or `**.openai.com`.",
+          "line_number": 50,
+          "excerpt": "[permissions.workspace.network.domains]"
+        },
+        {
+          "path": "codex-rs/utils/pty/README.md",
+          "header": "});",
+          "line_number": 52,
+          "excerpt": "``` Swap in `spawn_pipe_process` for a non-TTY subprocess; the rest of the API stays the same."
+        },
+        {
+          "path": "codex-rs/utils/stream-parser/README.md",
+          "header": "}",
+          "line_number": 66,
+          "excerpt": "```"
+        }
+      ]
+    },
+    "primary_user_journey": {
+      "detected": true,
+      "evidence": [
+        {
+          "path": "docs/tui-alternate-screen.md",
+          "header": "Implementation Details",
+          "line_number": 67,
+          "excerpt": ""
+        },
+        {
+          "path": "codex-cli/README.md",
+          "header": "Classic, JS implementation that includes small, native binaries for Linux sandboxing.",
+          "line_number": 663,
+          "excerpt": "pnpm stage-release"
+        },
+        {
+          "path": "codex-cli/README.md",
+          "header": "Use either one of the commands according to which implementation you want to work with",
+          "line_number": 691,
+          "excerpt": "nix develop .#codex-cli # For entering codex-cli specific shell nix develop .#codex-rs # For entering codex-rs specific shell"
+        },
+        {
+          "path": "codex-cli/README.md",
+          "header": "Use either one of the commands according to which implementation you want to work with",
+          "line_number": 701,
+          "excerpt": "nix build .#codex-cli # For building codex-cli nix build .#codex-rs # For building codex-rs"
+        },
+        {
+          "path": "codex-cli/README.md",
+          "header": "Use either one of the commands according to which implementation you want to work with",
+          "line_number": 710,
+          "excerpt": "nix run .#codex-cli # For running codex-cli nix run .#codex-rs # For running codex-rs"
+        },
+        {
+          "path": "codex-rs/README.md",
+          "header": "Codex CLI (Rust Implementation)",
+          "line_number": 1,
+          "excerpt": "We provide Codex CLI as a standalone, native executable to ensure a zero-dependency install."
+        },
+        {
+          "path": "codex-rs/app-server/README.md",
+          "header": "Example: Track thread status changes",
+          "line_number": 310,
+          "excerpt": "`thread/status/changed` is emitted whenever a loaded thread's status changes after it has already been introduced to the client:"
+        },
+        {
+          "path": "codex-rs/utils/pty/README.md",
+          "header": "});",
+          "line_number": 52,
+          "excerpt": "``` Swap in `spawn_pipe_process` for a non-TTY subprocess; the rest of the API stays the same."
+        },
+        {
+          "path": "codex-rs/utils/stream-parser/README.md",
+          "header": "}",
+          "line_number": 66,
+          "excerpt": "```"
+        }
+      ]
+    }
+  },
+  "adrs": [
+    {
+      "file": "README.md",
+      "title": "Install using npm",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "docs/tui-stream-chunking-tuning.md",
+      "title": "TUI Stream Chunking Tuning Guide",
+      "status": "unknown",
+      "sections_detected": [
+        "scope",
+        "success_criteria"
+      ]
+    },
+    {
+      "file": "docs/exit-confirmation-prompt-design.md",
+      "title": "Exit and shutdown flow (tui)",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "docs/authentication.md",
+      "title": "Authentication",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "docs/license.md",
+      "title": "license",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "docs/agents_md.md",
+      "title": "AGENTS.md",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "docs/sandbox.md",
+      "title": "sandbox",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "docs/open-source-fund.md",
+      "title": "open-source-fund",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "docs/install.md",
+      "title": "Clone the repository and navigate to the root of the Cargo workspace.",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "docs/tui-alternate-screen.md",
+      "title": "TUI Alternate Screen and Terminal Multiplexers",
+      "status": "unknown",
+      "sections_detected": [
+        "problem_and_job",
+        "primary_user_journey"
+      ]
+    },
+    {
+      "file": "docs/example-config.md",
+      "title": "Sample configuration",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "docs/tui-stream-chunking-validation.md",
+      "title": "TUI Stream Chunking Validation Process",
+      "status": "unknown",
+      "sections_detected": [
+        "scope"
+      ]
+    },
+    {
+      "file": "docs/execpolicy.md",
+      "title": "Execution policy",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "docs/getting-started.md",
+      "title": "Getting started with Codex CLI",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "docs/config.md",
+      "title": "Configuration",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "docs/tui-request-user-input.md",
+      "title": "Request user input overlay (TUI)",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "docs/skills.md",
+      "title": "Skills",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "docs/CLA.md",
+      "title": "Individual Contributor License Agreement (v1.0, OpenAI)",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "docs/contributing.md",
+      "title": "contributing",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "docs/tui-stream-chunking-review.md",
+      "title": "TUI Stream Chunking",
+      "status": "unknown",
+      "sections_detected": [
+        "problem_and_job",
+        "success_criteria"
+      ]
+    },
+    {
+      "file": "docs/exec.md",
+      "title": "Non-interactive mode",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "docs/js_repl.md",
+      "title": "JavaScript REPL (`js_repl`)",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "docs/slash_commands.md",
+      "title": "Slash commands",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "docs/tui-chat-composer.md",
+      "title": "Chat Composer state machine (TUI)",
+      "status": "unknown",
+      "sections_detected": [
+        "problem_and_job"
+      ]
+    },
+    {
+      "file": "codex-cli/README.md",
+      "title": "or",
+      "status": "unknown",
+      "sections_detected": [
+        "primary_user_journey"
+      ]
+    },
+    {
+      "file": "codex-rs/README.md",
+      "title": "Codex CLI (Rust Implementation)",
+      "status": "unknown",
+      "sections_detected": [
+        "primary_user_journey",
+        "problem_and_job"
+      ]
+    },
+    {
+      "file": ".devcontainer/README.md",
+      "title": "Containerized Development",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": ".github/workflows/README.md",
+      "title": "Workflow Strategy",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "sdk/python/README.md",
+      "title": "Codex App Server Python SDK (Experimental)",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "sdk/typescript/README.md",
+      "title": "Codex SDK",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "sdk/python-runtime/README.md",
+      "title": "Codex CLI Runtime for Python SDK",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "sdk/python/examples/README.md",
+      "title": "Python SDK Examples",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/ansi-escape/README.md",
+      "title": "oai-codex-ansi-escape",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/network-proxy/README.md",
+      "title": "codex-network-proxy",
+      "status": "unknown",
+      "sections_detected": [
+        "scope"
+      ]
+    },
+    {
+      "file": "codex-rs/tools/README.md",
+      "title": "codex-tools",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/core/README.md",
+      "title": "codex-core",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/process-hardening/README.md",
+      "title": "codex-process-hardening",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/linux-sandbox/README.md",
+      "title": "codex-linux-sandbox",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/exec-server/README.md",
+      "title": "codex-exec-server",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/otel/README.md",
+      "title": "codex-otel",
+      "status": "unknown",
+      "sections_detected": [
+        "problem_and_job"
+      ]
+    },
+    {
+      "file": "codex-rs/protocol/README.md",
+      "title": "codex-protocol",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/app-server/README.md",
+      "title": "codex-app-server",
+      "status": "unknown",
+      "sections_detected": [
+        "primary_user_journey",
+        "problem_and_job"
+      ]
+    },
+    {
+      "file": "codex-rs/app-server-client/README.md",
+      "title": "codex-app-server-client",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/app-server-test-client/README.md",
+      "title": "App Server Test Client",
+      "status": "unknown",
+      "sections_detected": [
+        "problem_and_job"
+      ]
+    },
+    {
+      "file": "codex-rs/execpolicy/README.md",
+      "title": "codex-execpolicy",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/codex-client/README.md",
+      "title": "codex-client",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/execpolicy-legacy/README.md",
+      "title": "codex-execpolicy-legacy",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/chatgpt/README.md",
+      "title": "ChatGPT",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/codex-api/README.md",
+      "title": "codex-api",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/stdio-to-uds/README.md",
+      "title": "codex-stdio-to-uds",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/shell-escalation/README.md",
+      "title": "codex-shell-escalation",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/responses-api-proxy/README.md",
+      "title": "codex-responses-api-proxy",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/file-search/README.md",
+      "title": "codex_file_search",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/git-utils/README.md",
+      "title": "codex-git-utils",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/debug-client/README.md",
+      "title": "codex-debug-client",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/responses-api-proxy/npm/README.md",
+      "title": "@openai/codex-responses-api-proxy",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/apply-patch/tests/fixtures/scenarios/README.md",
+      "title": "Overview",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/utils/cargo-bin/README.md",
+      "title": "codex-utils-cargo-bin runfiles strategy",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/utils/pty/README.md",
+      "title": "codex-utils-pty",
+      "status": "unknown",
+      "sections_detected": [
+        "problem_and_job",
+        "success_criteria",
+        "scope",
+        "primary_user_journey"
+      ]
+    },
+    {
+      "file": "codex-rs/utils/template/README.md",
+      "title": "codex-utils-template",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/utils/stream-parser/README.md",
+      "title": "codex-utils-stream-parser",
+      "status": "unknown",
+      "sections_detected": [
+        "problem_and_job",
+        "success_criteria",
+        "scope",
+        "primary_user_journey"
+      ]
+    },
+    {
+      "file": "codex-rs/core/src/config_loader/README.md",
+      "title": "`codex-core` config loader",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-rs/core/src/memories/README.md",
+      "title": "Memories Pipeline (Core)",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "tools/argument-comment-lint/README.md",
+      "title": "argument-comment-lint",
+      "status": "unknown",
+      "sections_detected": []
+    },
+    {
+      "file": "codex-cli/scripts/README.md",
+      "title": "npm releases",
+      "status": "unknown",
+      "sections_detected": []
+    }
+  ]
+}

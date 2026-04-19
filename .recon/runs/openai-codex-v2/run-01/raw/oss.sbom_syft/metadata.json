@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "probe_id": "oss.sbom_syft",
+  "timestamp_start_utc": "2026-04-06T17:49:22.211202+00:00",
+  "timestamp_end_utc": "2026-04-06T17:49:22.211207+00:00",
+  "wall_time_seconds": 3.52208,
+  "command": "scripts/probes/oss_sbom_syft.sh",
+  "args": {
+    "raw_args": [
+      "--repo",
+      "/Users/jamiecraik/dev/codex"
+    ],
+    "repo": "/Users/jamiecraik/dev/codex",
+    "out": "/Users/jamiecraik/dev/codex/.recon/runs/openai-codex-v2/run-01/raw/oss.sbom_syft"
+  },
+  "exit_code": 0,
+  "exit_signal": null,
+  "retry_count": 0,
+  "stdout_path": "raw/oss.sbom_syft/stdout.txt",
+  "stderr_path": "raw/oss.sbom_syft/stderr.txt",
+  "artifacts": [
+    "raw/oss.sbom_syft/sbom_syft.json",
+    "raw/oss.sbom_syft/status.txt",
+    "raw/oss.sbom_syft/sbom_syft.stderr"
+  ],
+  "hostname": "Mac-Studio.local",
+  "username": "jamiecraik"
+}

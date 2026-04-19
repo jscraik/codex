@@ -52,6 +52,7 @@ You can also use Codex with an API key, but this requires [additional setup](htt
 
 ## Docs
 
+- [**Codex Architectural Handbook**](./docs/codex_architectural_handbook.md) — Fundamental guide to the system architecture and engineering standards.
 - [**Codex Documentation**](https://developers.openai.com/codex)
 - [**Contributing**](./docs/contributing.md)
 - [**Installing & building**](./docs/install.md)

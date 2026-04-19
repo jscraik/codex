@@ -1,5 +1,9 @@
 //! The main Codex TUI chat surface.
 //!
+//! ! WARNING: This module is a 10,000+ LOC monolith and is a primary target for refactoring.
+//! ! Before making significant changes, please refer to the Architectural Handbook:
+//! ! ../../../docs/codex_architectural_handbook.md
+//!
 //! `ChatWidget` consumes protocol events, builds and updates history cells, and drives rendering
 //! for both the main viewport and overlay UIs.
 //!
