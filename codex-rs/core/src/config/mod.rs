@@ -292,6 +292,9 @@ pub struct Config {
     /// Whether to inject the `<apps_instructions>` developer block.
     pub include_apps_instructions: bool,
 
+    /// Whether to inject the `<skills_instructions>` developer block.
+    pub include_skill_instructions: bool,
+
     /// Whether to inject the `<environment_context>` user block.
     pub include_environment_context: bool,
 
@@ -854,12 +857,27 @@ pub async fn load_config_as_toml_with_cli_overrides(
     cwd: Option<&AbsolutePathBuf>,
     cli_overrides: Vec<(String, TomlValue)>,
 ) -> std::io::Result<ConfigToml> {
+    load_config_as_toml_with_cli_and_loader_overrides(
+        codex_home,
+        cwd,
+        cli_overrides,
+        LoaderOverrides::default(),
+    )
+    .await
+}
+
+pub async fn load_config_as_toml_with_cli_and_loader_overrides(
+    codex_home: &Path,
+    cwd: Option<&AbsolutePathBuf>,
+    cli_overrides: Vec<(String, TomlValue)>,
+    loader_overrides: LoaderOverrides,
+) -> std::io::Result<ConfigToml> {
     let config_layer_stack = load_config_layers_state(
         LOCAL_FS.as_ref(),
         codex_home,
         cwd.cloned(),
         &cli_overrides,
-        LoaderOverrides::default(),
+        loader_overrides,
         CloudRequirementsLoader::default(),
     )
     .await?;
@@ -1929,6 +1947,11 @@ impl Config {
             .include_apps_instructions
             .or(cfg.include_apps_instructions)
             .unwrap_or(true);
+        let include_skill_instructions = cfg
+            .skills
+            .as_ref()
+            .and_then(|skills| skills.include_instructions)
+            .unwrap_or(true);
         let include_environment_context = config_profile
             .include_environment_context
             .or(cfg.include_environment_context)
@@ -2143,6 +2166,7 @@ impl Config {
             commit_attribution,
             include_permissions_instructions,
             include_apps_instructions,
+            include_skill_instructions,
             include_environment_context,
             // The config.toml omits "_mode" because it's a config file. However, "_mode"
             // is important in code to differentiate the mode from the store implementation.
