@@ -315,6 +315,10 @@ impl App {
             AppEvent::CodexOp(op) => {
                 self.submit_active_thread_op(app_server, op.into()).await?;
             }
+            AppEvent::ApproveRecentAutoReviewDenial { thread_id, id } => {
+                self.chat_widget
+                    .approve_recent_auto_review_denial(thread_id, id);
+            }
             AppEvent::SubmitThreadOp { thread_id, op } => {
                 self.submit_thread_op(app_server, thread_id, op.into())
                     .await?;
@@ -336,6 +340,7 @@ impl App {
                 self.overlay = Some(Overlay::new_static_with_lines(
                     pager_lines,
                     "D I F F".to_string(),
+                    self.keymap.pager.clone(),
                 ));
                 tui.frame_requester().schedule_frame();
             }
@@ -834,7 +839,10 @@ impl App {
                             /*hint*/ None,
                         ));
 
-                    let policy = self.config.permissions.sandbox_policy.get().clone();
+                    let policy = self
+                        .config
+                        .permissions
+                        .legacy_sandbox_policy(self.config.cwd.as_path());
                     let policy_cwd = self.config.cwd.clone();
                     let command_cwd = self.config.cwd.clone();
                     let env_map: std::collections::HashMap<String, String> =
@@ -1245,8 +1253,11 @@ impl App {
                         .add_error_message(format!("Failed to set sandbox policy: {err}"));
                     return Ok(AppRunControl::Continue);
                 }
-                self.runtime_sandbox_policy_override =
-                    Some(self.config.permissions.sandbox_policy.get().clone());
+                self.runtime_sandbox_policy_override = Some(
+                    self.config
+                        .permissions
+                        .legacy_sandbox_policy(self.config.cwd.as_path()),
+                );
                 self.sync_active_thread_permission_settings_to_cached_session()
                     .await;
 
@@ -1269,7 +1280,10 @@ impl App {
                             std::env::vars().collect();
                         let tx = self.app_event_tx.clone();
                         let logs_base_dir = self.config.codex_home.clone();
-                        let sandbox_policy = self.config.permissions.sandbox_policy.get().clone();
+                        let sandbox_policy = self
+                            .config
+                            .permissions
+                            .legacy_sandbox_policy(self.config.cwd.as_path());
                         Self::spawn_world_writable_scan(
                             cwd,
                             env_map,
@@ -1577,6 +1591,7 @@ impl App {
                     self.overlay = Some(Overlay::new_static_with_renderables(
                         vec![diff_summary.into()],
                         "P A T C H".to_string(),
+                        self.keymap.pager.clone(),
                     ));
                 }
                 ApprovalRequest::Exec { command, .. } => {
@@ -1586,6 +1601,7 @@ impl App {
                     self.overlay = Some(Overlay::new_static_with_lines(
                         full_cmd_lines,
                         "E X E C".to_string(),
+                        self.keymap.pager.clone(),
                     ));
                 }
                 ApprovalRequest::Permissions {
@@ -1610,6 +1626,7 @@ impl App {
                     self.overlay = Some(Overlay::new_static_with_renderables(
                         vec![Box::new(Paragraph::new(lines).wrap(Wrap { trim: false }))],
                         "P E R M I S S I O N S".to_string(),
+                        self.keymap.pager.clone(),
                     ));
                 }
                 ApprovalRequest::McpElicitation {
@@ -1627,6 +1644,7 @@ impl App {
                     self.overlay = Some(Overlay::new_static_with_renderables(
                         vec![Box::new(paragraph)],
                         "E L I C I T A T I O N".to_string(),
+                        self.keymap.pager.clone(),
                     ));
                 }
             },
@@ -1723,8 +1741,152 @@ impl App {
                     }
                 }
             }
+            AppEvent::OpenKeymapActionMenu { context, action } => {
+                self.chat_widget
+                    .open_keymap_action_menu(context, action, &self.keymap);
+            }
+            AppEvent::OpenKeymapReplaceBindingMenu { context, action } => {
+                self.chat_widget
+                    .open_keymap_replace_binding_menu(context, action, &self.keymap);
+            }
+            AppEvent::OpenKeymapCapture {
+                context,
+                action,
+                intent,
+            } => {
+                self.chat_widget
+                    .open_keymap_capture(context, action, intent, &self.keymap);
+            }
+            AppEvent::KeymapCaptured {
+                context,
+                action,
+                key,
+                intent,
+            } => {
+                self.apply_keymap_capture(context, action, key, intent)
+                    .await;
+            }
+            AppEvent::KeymapCleared { context, action } => {
+                self.apply_keymap_clear(context, action).await;
+            }
         }
         Ok(AppRunControl::Continue)
+    }
+
+    async fn apply_keymap_capture(
+        &mut self,
+        context: String,
+        action: String,
+        key: String,
+        intent: crate::app_event::KeymapEditIntent,
+    ) {
+        let outcome = match crate::keymap_setup::keymap_with_edit(
+            &self.config.tui_keymap,
+            &self.keymap,
+            &context,
+            &action,
+            &key,
+            &intent,
+        ) {
+            Ok(outcome) => outcome,
+            Err(err) => {
+                self.chat_widget.add_error_message(err);
+                return;
+            }
+        };
+        let (keymap_config, bindings, message) = match outcome {
+            crate::keymap_setup::KeymapEditOutcome::Updated {
+                keymap_config,
+                bindings,
+                message,
+            } => (*keymap_config, bindings, message),
+            crate::keymap_setup::KeymapEditOutcome::Unchanged { message } => {
+                self.chat_widget.add_info_message(message, /*hint*/ None);
+                return;
+            }
+        };
+
+        let runtime_keymap = match RuntimeKeymap::from_config(&keymap_config) {
+            Ok(runtime_keymap) => runtime_keymap,
+            Err(err) => {
+                let params = crate::keymap_setup::build_keymap_conflict_params(
+                    context, action, key, intent, err,
+                );
+                self.chat_widget.show_selection_view(params);
+                return;
+            }
+        };
+
+        let edit =
+            crate::legacy_core::config::edit::keymap_bindings_edit(&context, &action, &bindings);
+        match ConfigEditsBuilder::new(&self.config.codex_home)
+            .with_edits([edit])
+            .apply()
+            .await
+        {
+            Ok(()) => {
+                self.config.tui_keymap = keymap_config.clone();
+                self.keymap = runtime_keymap.clone();
+                self.chat_widget
+                    .apply_keymap_update(keymap_config, &runtime_keymap);
+                self.chat_widget
+                    .return_to_keymap_picker(&context, &action, &runtime_keymap);
+                self.chat_widget.add_info_message(message, /*hint*/ None);
+            }
+            Err(err) => {
+                tracing::error!(error = %err, "failed to persist keymap binding");
+                self.chat_widget
+                    .add_error_message(format!("Failed to save shortcut: {err}"));
+            }
+        }
+    }
+
+    async fn apply_keymap_clear(&mut self, context: String, action: String) {
+        let keymap_config = match crate::keymap_setup::keymap_without_custom_binding(
+            &self.config.tui_keymap,
+            &context,
+            &action,
+        ) {
+            Ok(keymap_config) => keymap_config,
+            Err(err) => {
+                self.chat_widget.add_error_message(err);
+                return;
+            }
+        };
+
+        let runtime_keymap = match RuntimeKeymap::from_config(&keymap_config) {
+            Ok(runtime_keymap) => runtime_keymap,
+            Err(err) => {
+                self.chat_widget
+                    .add_error_message(format!("Failed to refresh shortcuts: {err}"));
+                return;
+            }
+        };
+
+        let edit = crate::legacy_core::config::edit::keymap_binding_clear_edit(&context, &action);
+        match ConfigEditsBuilder::new(&self.config.codex_home)
+            .with_edits([edit])
+            .apply()
+            .await
+        {
+            Ok(()) => {
+                self.config.tui_keymap = keymap_config.clone();
+                self.keymap = runtime_keymap.clone();
+                self.chat_widget
+                    .apply_keymap_update(keymap_config, &runtime_keymap);
+                self.chat_widget
+                    .return_to_keymap_picker(&context, &action, &runtime_keymap);
+                self.chat_widget.add_info_message(
+                    format!("Removed custom shortcut for `{context}.{action}`."),
+                    /*hint*/ None,
+                );
+            }
+            Err(err) => {
+                tracing::error!(error = %err, "failed to clear keymap binding");
+                self.chat_widget
+                    .add_error_message(format!("Failed to remove shortcut: {err}"));
+            }
+        }
     }
 
     pub(super) async fn handle_exit_mode(

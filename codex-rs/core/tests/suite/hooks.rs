@@ -4,12 +4,6 @@ use std::path::Path;
 use anyhow::Context;
 use anyhow::Result;
 use codex_core::config::Constrained;
-use codex_core::config_loader::ConfigLayerStack;
-use codex_core::config_loader::ConfigLayerStackOrdering;
-use codex_core::config_loader::NetworkConstraints;
-use codex_core::config_loader::NetworkRequirementsToml;
-use codex_core::config_loader::RequirementSource;
-use codex_core::config_loader::Sourced;
 use codex_features::Feature;
 use codex_protocol::items::parse_hook_prompt_fragment;
 use codex_protocol::models::ContentItem;
@@ -21,6 +15,7 @@ use codex_protocol::protocol::RolloutItem;
 use codex_protocol::protocol::RolloutLine;
 use codex_protocol::protocol::SandboxPolicy;
 use codex_protocol::user_input::UserInput;
+use core_test_support::managed_network_requirements_loader;
 use core_test_support::responses::ev_apply_patch_function_call;
 use core_test_support::responses::ev_assistant_message;
 use core_test_support::responses::ev_completed;
@@ -1577,40 +1572,16 @@ allow_local_binding = true
                 panic!("failed to write permission request hook test fixture: {error}");
             }
         })
+        .with_cloud_requirements(managed_network_requirements_loader())
         .with_config(move |config| {
             config
                 .features
                 .enable(Feature::CodexHooks)
                 .expect("test config should allow feature update");
             config.permissions.approval_policy = Constrained::allow_any(approval_policy);
-            config.permissions.sandbox_policy = Constrained::allow_any(sandbox_policy_for_config);
-            let layers = config
-                .config_layer_stack
-                .get_layers(
-                    ConfigLayerStackOrdering::LowestPrecedenceFirst,
-                    /*include_disabled*/ true,
-                )
-                .into_iter()
-                .cloned()
-                .collect();
-            let mut requirements = config.config_layer_stack.requirements().clone();
-            requirements.network = Some(Sourced::new(
-                NetworkConstraints {
-                    enabled: Some(true),
-                    allow_local_binding: Some(true),
-                    ..Default::default()
-                },
-                RequirementSource::CloudRequirements,
-            ));
-            let mut requirements_toml = config.config_layer_stack.requirements_toml().clone();
-            requirements_toml.network = Some(NetworkRequirementsToml {
-                enabled: Some(true),
-                allow_local_binding: Some(true),
-                ..Default::default()
-            });
-            config.config_layer_stack =
-                ConfigLayerStack::new(layers, requirements, requirements_toml)
-                    .expect("rebuild config layer stack with network requirements");
+            config
+                .set_legacy_sandbox_policy(sandbox_policy_for_config)
+                .expect("set sandbox policy");
         })
         .build(&server)
         .await?;
