@@ -1144,6 +1144,84 @@ fn test_build_specs_mcp_tools_converted() {
 }
 
 #[test]
+fn namespace_specs_are_hidden_when_namespace_tools_are_disabled() {
+    let model_info = model_info();
+    let features = Features::with_defaults();
+    let available_models = Vec::new();
+    let mut tools_config = ToolsConfig::new(&ToolsConfigParams {
+        model_info: &model_info,
+        available_models: &available_models,
+        features: &features,
+        image_generation_tool_auth_allowed: true,
+        web_search_mode: Some(WebSearchMode::Cached),
+        session_source: SessionSource::Cli,
+        permission_profile: &PermissionProfile::Disabled,
+        windows_sandbox_level: WindowsSandboxLevel::Disabled,
+    });
+    tools_config.namespace_tools = false;
+
+    let (tools, handlers) = build_specs(
+        &tools_config,
+        Some(HashMap::from([(
+            ToolName::namespaced("mcp__sample__", "echo"),
+            mcp_tool("echo", "Echo", serde_json::json!({"type": "object"})),
+        )])),
+        /*deferred_mcp_tools*/ None,
+        &[],
+    );
+
+    assert_lacks_tool_name(&tools, "mcp__sample__");
+    assert!(handlers.contains(&ToolHandlerSpec {
+        name: ToolName::namespaced("mcp__sample__", "echo"),
+        kind: ToolHandlerKind::Mcp,
+    }));
+}
+
+#[test]
+fn namespaced_dynamic_specs_are_hidden_when_namespace_tools_are_disabled() {
+    let model_info = model_info();
+    let features = Features::with_defaults();
+    let available_models = Vec::new();
+    let mut tools_config = ToolsConfig::new(&ToolsConfigParams {
+        model_info: &model_info,
+        available_models: &available_models,
+        features: &features,
+        image_generation_tool_auth_allowed: true,
+        web_search_mode: Some(WebSearchMode::Cached),
+        session_source: SessionSource::Cli,
+        permission_profile: &PermissionProfile::Disabled,
+        windows_sandbox_level: WindowsSandboxLevel::Disabled,
+    });
+    tools_config.namespace_tools = false;
+    let dynamic_tools = vec![
+        DynamicToolSpec {
+            namespace: Some("codex_app".to_string()),
+            name: "automation_update".to_string(),
+            description: "Create or update automations.".to_string(),
+            input_schema: json!({"type": "object", "properties": {}}),
+            defer_loading: false,
+        },
+        DynamicToolSpec {
+            namespace: None,
+            name: "plain_dynamic".to_string(),
+            description: "Plain dynamic tool.".to_string(),
+            input_schema: json!({"type": "object", "properties": {}}),
+            defer_loading: false,
+        },
+    ];
+
+    let (tools, _) = build_specs(
+        &tools_config,
+        /*mcp_tools*/ None,
+        /*deferred_mcp_tools*/ None,
+        &dynamic_tools,
+    );
+
+    assert_lacks_tool_name(&tools, "codex_app");
+    assert_contains_tool_names(&tools, &["plain_dynamic"]);
+}
+
+#[test]
 fn test_build_specs_mcp_namespace_description_falls_back_when_missing() {
     let model_info = model_info();
     let mut features = Features::with_defaults();
@@ -1399,6 +1477,44 @@ fn search_tool_requires_model_capability_and_enabled_feature() {
 }
 
 #[test]
+fn search_tool_is_hidden_when_only_deferred_namespace_tools_are_available() {
+    let model_info = search_capable_model_info();
+    let mut features = Features::with_defaults();
+    features.enable(Feature::ToolSearch);
+    let available_models = Vec::new();
+    let mut tools_config = ToolsConfig::new(&ToolsConfigParams {
+        model_info: &model_info,
+        available_models: &available_models,
+        features: &features,
+        image_generation_tool_auth_allowed: true,
+        web_search_mode: Some(WebSearchMode::Cached),
+        session_source: SessionSource::Cli,
+        permission_profile: &PermissionProfile::Disabled,
+        windows_sandbox_level: WindowsSandboxLevel::Disabled,
+    });
+    tools_config.namespace_tools = false;
+
+    let (tools, handlers) = build_specs(
+        &tools_config,
+        /*mcp_tools*/ None,
+        Some(vec![deferred_mcp_tool(
+            "_create_event",
+            "mcp__codex_apps__calendar",
+            CODEX_APPS_MCP_SERVER_NAME,
+            Some("Calendar"),
+            Some("Plan events and manage your calendar."),
+        )]),
+        &[],
+    );
+
+    assert_lacks_tool_name(&tools, TOOL_SEARCH_TOOL_NAME);
+    assert!(!handlers.contains(&ToolHandlerSpec {
+        name: ToolName::plain(TOOL_SEARCH_TOOL_NAME),
+        kind: ToolHandlerKind::ToolSearch,
+    }));
+}
+
+#[test]
 fn search_tool_registers_for_deferred_dynamic_tools() {
     let model_info = search_capable_model_info();
     let mut features = Features::with_defaults();
@@ -1485,6 +1601,55 @@ fn search_tool_registers_for_deferred_dynamic_tools() {
 }
 
 #[test]
+fn search_tool_keeps_plain_deferred_dynamic_tools_when_namespace_tools_are_disabled() {
+    let model_info = search_capable_model_info();
+    let mut features = Features::with_defaults();
+    features.enable(Feature::ToolSearch);
+    let available_models = Vec::new();
+    let mut tools_config = ToolsConfig::new(&ToolsConfigParams {
+        model_info: &model_info,
+        available_models: &available_models,
+        features: &features,
+        image_generation_tool_auth_allowed: true,
+        web_search_mode: Some(WebSearchMode::Cached),
+        session_source: SessionSource::Cli,
+        permission_profile: &PermissionProfile::Disabled,
+        windows_sandbox_level: WindowsSandboxLevel::Disabled,
+    });
+    tools_config.namespace_tools = false;
+    let dynamic_tools = vec![
+        DynamicToolSpec {
+            namespace: Some("codex_app".to_string()),
+            name: "automation_update".to_string(),
+            description: "Create or update automations.".to_string(),
+            input_schema: json!({"type": "object", "properties": {}}),
+            defer_loading: true,
+        },
+        DynamicToolSpec {
+            namespace: None,
+            name: "plain_dynamic".to_string(),
+            description: "Plain dynamic tool.".to_string(),
+            input_schema: json!({"type": "object", "properties": {}}),
+            defer_loading: true,
+        },
+    ];
+
+    let (tools, handlers) = build_specs(
+        &tools_config,
+        /*mcp_tools*/ None,
+        /*deferred_mcp_tools*/ None,
+        &dynamic_tools,
+    );
+
+    assert_contains_tool_names(&tools, &[TOOL_SEARCH_TOOL_NAME, "plain_dynamic"]);
+    assert_lacks_tool_name(&tools, "codex_app");
+    assert!(handlers.contains(&ToolHandlerSpec {
+        name: ToolName::plain(TOOL_SEARCH_TOOL_NAME),
+        kind: ToolHandlerKind::ToolSearch,
+    }));
+}
+
+#[test]
 fn tool_suggest_is_not_registered_without_feature_flag() {
     let model_info = search_capable_model_info();
     let mut features = Features::with_defaults();
@@ -1556,17 +1721,18 @@ fn tool_suggest_can_be_registered_without_search_tool() {
     );
 
     assert_contains_tool_names(&tools, &[TOOL_SUGGEST_TOOL_NAME]);
+    let tool_suggest = find_tool(&tools, TOOL_SUGGEST_TOOL_NAME);
+    assert!(tool_suggest.supports_parallel_tool_calls);
     assert_lacks_tool_name(&tools, TOOL_SEARCH_TOOL_NAME);
 
-    let tool_suggest = find_tool(&tools, TOOL_SUGGEST_TOOL_NAME);
     let ToolSpec::Function(ResponsesApiTool { description, .. }) = &tool_suggest.spec else {
         panic!("expected function tool");
     };
     assert!(description.contains(
-        "Suggests a missing connector in an installed plugin, or in narrower cases a not installed but discoverable plugin"
+        "Use this tool only to ask the user to install one known plugin or connector from the list below. The list contains known candidates that are not currently installed."
     ));
     assert!(description.contains(
-        "You've already tried to find a matching available tool for the user's request but couldn't find a good match. This includes `tool_search` (if available) and other means."
+        "`tool_search` is not available, or it has already been called and did not find or make the requested tool callable."
     ));
 }
 
@@ -1611,13 +1777,17 @@ fn tool_suggest_description_lists_discoverable_tools() {
         })),
     ];
 
-    let (tools, _) = build_specs_with_discoverable_tools(
+    let (tools, handlers) = build_specs_with_discoverable_tools(
         &tools_config,
         /*mcp_tools*/ None,
         /*deferred_mcp_tools*/ None,
         Some(discoverable_tools),
         &[],
     );
+    assert!(handlers.contains(&ToolHandlerSpec {
+        name: ToolName::plain(TOOL_SUGGEST_TOOL_NAME),
+        kind: ToolHandlerKind::ToolSuggest,
+    }));
 
     let tool_suggest = find_tool(&tools, TOOL_SUGGEST_TOOL_NAME);
     let ToolSpec::Function(ResponsesApiTool {
@@ -1629,7 +1799,7 @@ fn tool_suggest_description_lists_discoverable_tools() {
         panic!("expected function tool");
     };
     assert!(description.contains(
-        "Suggests a missing connector in an installed plugin, or in narrower cases a not installed but discoverable plugin"
+        "Use this tool only to ask the user to install one known plugin or connector from the list below. The list contains known candidates that are not currently installed."
     ));
     assert!(description.contains("Google Calendar"));
     assert!(description.contains("Gmail"));
@@ -1637,28 +1807,37 @@ fn tool_suggest_description_lists_discoverable_tools() {
     assert!(description.contains("Plan events and schedules."));
     assert!(description.contains("Find and summarize email threads."));
     assert!(description.contains("id: `sample@test`, type: plugin, action: install"));
-    assert!(description.contains("`action_type`: `install` or `enable`"));
+    assert!(description.contains("`action_type`: `install`"));
     assert!(
         description.contains("skills; MCP servers: sample-docs; app connectors: connector_sample")
     );
     assert!(
         description.contains(
-            "You've already tried to find a matching available tool for the user's request but couldn't find a good match. This includes `tool_search` (if available) and other means."
+            "The user explicitly wants a specific plugin or connector that is not already available in the current context or active `tools` list."
         )
     );
     assert!(description.contains(
-        "For connectors/apps that are not installed but needed for an installed plugin, suggest to install them if the task requirements match precisely."
+        "`tool_search` is not available, or it has already been called and did not find or make the requested tool callable."
     ));
     assert!(description.contains(
-        "For plugins that are not installed but discoverable, only suggest discoverable and installable plugins when the user's intent very explicitly and unambiguously matches that plugin itself."
+        "The tool is one of the known installable plugins or connectors listed below. Only ask to install tools from this list."
     ));
     assert!(description.contains(
-        "Do not suggest a plugin just because one of its connectors or capabilities seems relevant."
+        "Do not use tool suggestion for adjacent capabilities, broad recommendations, or tools that merely seem useful."
+    ));
+    assert!(description.contains("IMPORTANT: DO NOT call this tool in parallel with other tools."));
+    assert!(description.contains(
+        "Do not use tool suggestion if the needed tool is already available, found through `tool_search`, or callable after discovery."
     ));
     assert!(description.contains(
-        "Apply the stricter explicit-and-unambiguous rule for *discoverable tools* like plugin install suggestions; *missing tools* like connector install suggestions continue to use the normal clear-fit standard."
+        "If `tool_search` is available, call `tool_search` before calling `tool_suggest`."
     ));
-    assert!(description.contains("DO NOT explore or recommend tools that are not on this list."));
+    assert!(!description.contains("targeted lookup"));
+    assert!(!description.contains("broad or speculative searches"));
+    assert!(description.contains("Only proceed when one listed plugin or connector exactly fits."));
+    assert!(description.contains(
+        "If we found both connectors and plugins to suggest, use plugins first, only use connectors if the corresponding plugin is installed but the connector is not."
+    ));
     assert!(!description.contains("{{discoverable_tools}}"));
     assert!(!description.contains("tool_search fails to find a good match"));
     let (_, required) = expect_object_schema(parameters);

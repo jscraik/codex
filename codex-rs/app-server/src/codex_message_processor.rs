@@ -42,7 +42,7 @@ use codex_app_server_protocol::CancelLoginAccountParams;
 use codex_app_server_protocol::CancelLoginAccountResponse;
 use codex_app_server_protocol::CancelLoginAccountStatus;
 use codex_app_server_protocol::ClientRequest;
-use codex_app_server_protocol::ClientResponse;
+use codex_app_server_protocol::ClientResponsePayload;
 use codex_app_server_protocol::CodexErrorInfo;
 use codex_app_server_protocol::CollaborationModeListParams;
 use codex_app_server_protocol::CollaborationModeListResponse;
@@ -294,6 +294,7 @@ use codex_features::FEATURES;
 use codex_features::Feature;
 use codex_features::Stage;
 use codex_feedback::CodexFeedback;
+use codex_feedback::FeedbackAttachmentPath;
 use codex_feedback::FeedbackUploadOptions;
 use codex_git_utils::git_diff_to_remote;
 use codex_git_utils::resolve_root_git_project_for_trust;
@@ -393,6 +394,8 @@ use std::sync::atomic::Ordering;
 use std::time::Duration;
 use std::time::Instant;
 use tokio::sync::Mutex;
+use tokio::sync::Semaphore;
+use tokio::sync::SemaphorePermit;
 use tokio::sync::broadcast;
 use tokio::sync::oneshot;
 use tokio::sync::watch;
@@ -524,6 +527,10 @@ pub(crate) struct CodexMessageProcessor {
     pending_thread_unloads: Arc<Mutex<HashSet<ThreadId>>>,
     thread_state_manager: ThreadStateManager,
     thread_watch_manager: ThreadWatchManager,
+    /// Serializes mutations of list membership or fields rendered from list
+    /// results. `thread/list` is intentionally not serialized so it can run
+    /// concurrently against mostly append-only storage.
+    thread_list_state_permit: Arc<Semaphore>,
     command_exec_manager: CommandExecManager,
     workspace_settings_cache: Arc<workspace_settings::WorkspaceSettingsCache>,
     pending_fuzzy_searches: Arc<Mutex<HashMap<String, Arc<AtomicBool>>>>,
@@ -549,6 +556,7 @@ struct ListenerTaskContext {
     pending_thread_unloads: Arc<Mutex<HashSet<ThreadId>>>,
     analytics_events_client: AnalyticsEventsClient,
     thread_watch_manager: ThreadWatchManager,
+    thread_list_state_permit: Arc<Semaphore>,
     fallback_model_provider: String,
     codex_home: PathBuf,
 }
@@ -684,7 +692,7 @@ pub(crate) struct CodexMessageProcessorArgs {
     pub(crate) log_db: Option<LogDbLayer>,
 }
 
-fn configured_thread_store(config: &Config) -> Arc<dyn ThreadStore> {
+fn thread_store_from_config(config: &Config) -> Arc<dyn ThreadStore> {
     match &config.experimental_thread_store {
         ThreadStoreConfig::Local => Arc::new(configured_local_thread_store(config)),
         ThreadStoreConfig::Remote { endpoint } => Arc::new(RemoteThreadStore::new(endpoint)),
@@ -713,6 +721,35 @@ impl CodexMessageProcessor {
 
     pub(crate) fn handle_config_mutation(&self) {
         self.clear_plugin_related_caches();
+    }
+
+    pub(crate) fn effective_plugins_changed_callback(
+        &self,
+        config: Config,
+    ) -> Arc<dyn Fn() + Send + Sync> {
+        let thread_manager = Arc::clone(&self.thread_manager);
+        Arc::new(move || {
+            Self::spawn_effective_plugins_changed_task(Arc::clone(&thread_manager), config.clone());
+        })
+    }
+
+    fn on_effective_plugins_changed(&self, config: Config) {
+        Self::spawn_effective_plugins_changed_task(Arc::clone(&self.thread_manager), config);
+    }
+
+    fn spawn_effective_plugins_changed_task(thread_manager: Arc<ThreadManager>, config: Config) {
+        tokio::spawn(async move {
+            thread_manager.plugins_manager().clear_cache();
+            thread_manager.skills_manager().clear_cache();
+            if thread_manager.list_thread_ids().await.is_empty() {
+                return;
+            }
+            if let Err(err) =
+                Self::queue_mcp_server_refresh_for_config(&thread_manager, &config).await
+            {
+                warn!("failed to queue MCP refresh after effective plugins changed: {err:?}");
+            }
+        });
     }
 
     fn clear_plugin_related_caches(&self) {
@@ -783,13 +820,14 @@ impl CodexMessageProcessor {
             outgoing: outgoing.clone(),
             analytics_events_client,
             arg0_paths,
-            thread_store: configured_thread_store(&config),
+            thread_store: thread_store_from_config(&config),
             config,
             config_manager,
             active_login: Arc::new(Mutex::new(None)),
             pending_thread_unloads: Arc::new(Mutex::new(HashSet::new())),
             thread_state_manager: ThreadStateManager::new(),
             thread_watch_manager: ThreadWatchManager::new_with_outgoing(outgoing),
+            thread_list_state_permit: Arc::new(Semaphore::new(/*permits*/ 1)),
             command_exec_manager: CommandExecManager::default(),
             workspace_settings_cache: Arc::new(
                 workspace_settings::WorkspaceSettingsCache::default(),
@@ -1267,6 +1305,11 @@ impl CodexMessageProcessor {
             ClientRequest::ConfigRequirementsRead { .. } => {
                 warn!("ConfigRequirementsRead request reached CodexMessageProcessor unexpectedly");
             }
+            ClientRequest::ModelProviderCapabilitiesRead { .. } => {
+                warn!(
+                    "ModelProviderCapabilitiesRead request reached CodexMessageProcessor unexpectedly"
+                );
+            }
             ClientRequest::ExternalAgentConfigDetect { .. }
             | ClientRequest::ExternalAgentConfigImport { .. } => {
                 warn!("ExternalAgentConfig request reached CodexMessageProcessor unexpectedly");
@@ -1295,8 +1338,11 @@ impl CodexMessageProcessor {
                 self.login_api_key_v2(request_id, LoginApiKeyParams { api_key })
                     .await;
             }
-            LoginAccountParams::Chatgpt => {
-                self.login_chatgpt_v2(request_id).await;
+            LoginAccountParams::Chatgpt {
+                codex_streamlined_login,
+            } => {
+                self.login_chatgpt_v2(request_id, codex_streamlined_login)
+                    .await;
             }
             LoginAccountParams::ChatgptDeviceCode => {
                 self.login_chatgpt_device_code_v2(request_id).await;
@@ -1324,6 +1370,17 @@ impl CodexMessageProcessor {
                 .to_string(),
             data: None,
         }
+    }
+
+    async fn acquire_thread_list_state_permit(
+        &self,
+    ) -> Result<SemaphorePermit<'_>, JSONRPCErrorError> {
+        self.thread_list_state_permit
+            .acquire()
+            .await
+            .map_err(|err| {
+                internal_error(format!("failed to acquire thread list state permit: {err}"))
+            })
     }
 
     async fn login_api_key_common(
@@ -1387,6 +1444,7 @@ impl CodexMessageProcessor {
     // Build options for a ChatGPT login attempt; performs validation.
     async fn login_chatgpt_common(
         &self,
+        codex_streamlined_login: bool,
     ) -> std::result::Result<LoginServerOptions, JSONRPCErrorError> {
         let config = self.config.as_ref();
 
@@ -1404,6 +1462,7 @@ impl CodexMessageProcessor {
 
         let opts = LoginServerOptions {
             open_browser: false,
+            codex_streamlined_login,
             ..LoginServerOptions::new(
                 config.codex_home.to_path_buf(),
                 CLIENT_ID.to_string(),
@@ -1442,13 +1501,20 @@ impl CodexMessageProcessor {
         }
     }
 
-    async fn login_chatgpt_v2(&self, request_id: ConnectionRequestId) {
-        let result = self.login_chatgpt_response().await;
+    async fn login_chatgpt_v2(
+        &self,
+        request_id: ConnectionRequestId,
+        codex_streamlined_login: bool,
+    ) {
+        let result = self.login_chatgpt_response(codex_streamlined_login).await;
         self.outgoing.send_result(request_id, result).await;
     }
 
-    async fn login_chatgpt_response(&self) -> Result<LoginAccountResponse, JSONRPCErrorError> {
-        let opts = self.login_chatgpt_common().await?;
+    async fn login_chatgpt_response(
+        &self,
+        codex_streamlined_login: bool,
+    ) -> Result<LoginAccountResponse, JSONRPCErrorError> {
+        let opts = self.login_chatgpt_common(codex_streamlined_login).await?;
         let server = run_login_server(opts)
             .map_err(|err| internal_error(format!("failed to start login server: {err}")))?;
         let login_id = Uuid::new_v4();
@@ -1519,7 +1585,9 @@ impl CodexMessageProcessor {
     async fn login_chatgpt_device_code_response(
         &self,
     ) -> Result<LoginAccountResponse, JSONRPCErrorError> {
-        let opts = self.login_chatgpt_common().await?;
+        let opts = self
+            .login_chatgpt_common(/*codex_streamlined_login*/ false)
+            .await?;
         let device_code = request_device_code(&opts)
             .await
             .map_err(Self::login_chatgpt_device_code_start_error)?;
@@ -2064,7 +2132,7 @@ impl CodexMessageProcessor {
         let result = self
             .exec_one_off_command_inner(request_id.clone(), params)
             .await
-            .map(|()| None::<serde_json::Value>);
+            .map(|()| None::<ClientResponsePayload>);
         self.send_optional_result(request_id, result).await;
     }
 
@@ -2421,6 +2489,7 @@ impl CodexMessageProcessor {
             pending_thread_unloads: Arc::clone(&self.pending_thread_unloads),
             analytics_events_client: self.analytics_events_client.clone(),
             thread_watch_manager: self.thread_watch_manager.clone(),
+            thread_list_state_permit: self.thread_list_state_permit.clone(),
             fallback_model_provider: self.config.model_provider_id.clone(),
             codex_home: self.config.codex_home.to_path_buf(),
         };
@@ -2484,6 +2553,7 @@ impl CodexMessageProcessor {
         let imported_thread = self
             .thread_manager
             .start_thread_with_options(StartThreadOptions {
+                thread_store: thread_store_from_config(&config),
                 config,
                 initial_history: InitialHistory::Forked(rollout_items),
                 session_source: None,
@@ -2681,6 +2751,7 @@ impl CodexMessageProcessor {
             } = listener_task_context
                 .thread_manager
                 .start_thread_with_options(StartThreadOptions {
+                    thread_store: thread_store_from_config(&config),
                     config,
                     initial_history: match session_start_source
                         .unwrap_or(codex_app_server_protocol::ThreadStartSource::Startup)
@@ -2799,16 +2870,6 @@ impl CodexMessageProcessor {
         match result {
             Ok((response, notif)) => {
                 listener_task_context
-                    .analytics_events_client
-                    .track_response(
-                        request_id.connection_id.0,
-                        ClientResponse::ThreadStart {
-                            request_id: request_id.request_id.clone(),
-                            response: response.clone(),
-                        },
-                    );
-
-                listener_task_context
                     .outgoing
                     .send_response(request_id, response)
                     .instrument(tracing::info_span!(
@@ -2871,6 +2932,13 @@ impl CodexMessageProcessor {
     }
 
     async fn thread_archive(&self, request_id: ConnectionRequestId, params: ThreadArchiveParams) {
+        let _thread_list_state_permit = match self.acquire_thread_list_state_permit().await {
+            Ok(permit) => permit,
+            Err(error) => {
+                self.outgoing.send_error(request_id, error).await;
+                return;
+            }
+        };
         let result = self.thread_archive_response(params).await;
         let archived_thread_ids = result
             .as_ref()
@@ -3077,6 +3145,7 @@ impl CodexMessageProcessor {
             return Err(invalid_request("thread name must not be empty"));
         };
 
+        let _thread_list_state_permit = self.acquire_thread_list_state_permit().await?;
         if let Ok(thread) = self.thread_manager.get_thread(thread_id).await {
             self.submit_core_op(request_id, thread.as_ref(), Op::SetThreadName { name })
                 .await
@@ -3218,6 +3287,7 @@ impl CodexMessageProcessor {
             return Err(invalid_request("gitInfo must include at least one field"));
         }
 
+        let _thread_list_state_permit = self.acquire_thread_list_state_permit().await?;
         let loaded_thread = self.thread_manager.get_thread(thread_uuid).await.ok();
         let mut state_db_ctx = loaded_thread.as_ref().and_then(|thread| thread.state_db());
         if state_db_ctx.is_none() {
@@ -3414,6 +3484,13 @@ impl CodexMessageProcessor {
         request_id: ConnectionRequestId,
         params: ThreadUnarchiveParams,
     ) {
+        let _thread_list_state_permit = match self.acquire_thread_list_state_permit().await {
+            Ok(permit) => permit,
+            Err(error) => {
+                self.outgoing.send_error(request_id, error).await;
+                return;
+            }
+        };
         let result = self.thread_unarchive_response(params).await;
         let notification =
             result
@@ -3471,7 +3548,7 @@ impl CodexMessageProcessor {
         let result = self
             .thread_rollback_start(&request_id, params)
             .await
-            .map(|()| None::<serde_json::Value>);
+            .map(|()| None::<ClientResponsePayload>);
         self.send_optional_result(request_id, result).await;
     }
 
@@ -4143,6 +4220,13 @@ impl CodexMessageProcessor {
             return;
         }
 
+        let _thread_list_state_permit = match self.acquire_thread_list_state_permit().await {
+            Ok(permit) => permit,
+            Err(error) => {
+                self.outgoing.send_error(request_id, error).await;
+                return;
+            }
+        };
         match self.resume_running_thread(&request_id, &params).await {
             Ok(true) => return,
             Ok(false) => {}
@@ -4230,7 +4314,8 @@ impl CodexMessageProcessor {
         match self
             .thread_manager
             .resume_thread_with_history(
-                config,
+                config.clone(),
+                thread_store_from_config(&config),
                 thread_history,
                 self.auth_manager.clone(),
                 persist_extended_history,
@@ -4320,13 +4405,6 @@ impl CodexMessageProcessor {
                     permission_profile,
                     reasoning_effort: session_configured.reasoning_effort,
                 };
-                self.analytics_events_client.track_response(
-                    request_id.connection_id.0,
-                    ClientResponse::ThreadResume {
-                        request_id: request_id.request_id.clone(),
-                        response: response.clone(),
-                    },
-                );
 
                 let connection_id = request_id.connection_id;
                 let token_usage_thread = include_turns.then(|| response.thread.clone());
@@ -4804,7 +4882,7 @@ impl CodexMessageProcessor {
 
             let fallback_model_provider = config.model_provider_id.clone();
             let instruction_sources = Self::instruction_sources_from_config(&config).await;
-            let fork_thread_store = configured_thread_store(&config);
+            let fork_thread_store = thread_store_from_config(&config);
 
             let NewThread {
                 thread_id,
@@ -4816,6 +4894,7 @@ impl CodexMessageProcessor {
                 .fork_thread_from_history(
                     ForkSnapshot::Interrupted,
                     config,
+                    fork_thread_store.clone(),
                     InitialHistory::Resumed(ResumedHistory {
                         conversation_id: source_thread_id,
                         history: history_items.clone(),
@@ -4938,14 +5017,6 @@ impl CodexMessageProcessor {
                 return;
             }
         };
-        self.analytics_events_client.track_response(
-            request_id.connection_id.0,
-            ClientResponse::ThreadFork {
-                request_id: request_id.request_id.clone(),
-                response: response.clone(),
-            },
-        );
-
         let connection_id = request_id.connection_id;
         let token_usage_thread = include_turns.then(|| response.thread.clone());
         self.outgoing.send_response(request_id, response).await;
@@ -5319,7 +5390,7 @@ impl CodexMessageProcessor {
     async fn mcp_server_refresh(&self, request_id: ConnectionRequestId, _params: Option<()>) {
         let result = async {
             let config = self.load_latest_config(/*fallback_cwd*/ None).await?;
-            self.queue_mcp_server_refresh_for_config(&config).await?;
+            Self::queue_mcp_server_refresh_for_config(&self.thread_manager, &config).await?;
             Ok::<_, JSONRPCErrorError>(McpServerRefreshResponse {})
         }
         .await;
@@ -5327,11 +5398,10 @@ impl CodexMessageProcessor {
     }
 
     async fn queue_mcp_server_refresh_for_config(
-        &self,
+        thread_manager: &Arc<ThreadManager>,
         config: &Config,
     ) -> Result<(), JSONRPCErrorError> {
-        let configured_servers = self
-            .thread_manager
+        let configured_servers = thread_manager
             .mcp_manager()
             .configured_servers(config)
             .await;
@@ -5367,7 +5437,6 @@ impl CodexMessageProcessor {
 
         // Refresh requests are queued per thread; each thread rebuilds MCP connections on its next
         // active turn to avoid work for threads that never resume.
-        let thread_manager = Arc::clone(&self.thread_manager);
         thread_manager.refresh_mcp_servers(refresh_config).await;
         Ok(())
     }
@@ -5731,7 +5800,7 @@ impl CodexMessageProcessor {
         request_id: ConnectionRequestId,
         result: Result<Option<T>, JSONRPCErrorError>,
     ) where
-        T: serde::Serialize,
+        T: Into<ClientResponsePayload>,
     {
         match result {
             Ok(Some(response)) => self.outgoing.send_response(request_id, response).await,
@@ -6216,12 +6285,13 @@ impl CodexMessageProcessor {
                     continue;
                 }
             };
-            let effective_skill_roots = plugins_manager
-                .effective_skill_roots_for_layer_stack(
-                    &config_layer_stack,
-                    config.features.enabled(Feature::Plugins) && workspace_codex_plugins_enabled,
-                )
-                .await;
+            let effective_skill_roots = if workspace_codex_plugins_enabled {
+                plugins_manager
+                    .effective_skill_roots_for_layer_stack(&config_layer_stack, &config)
+                    .await
+            } else {
+                Vec::new()
+            };
             let skills_input = codex_core::skills::SkillsLoadInput::new(
                 cwd_abs.clone(),
                 effective_skill_roots,
@@ -6564,13 +6634,6 @@ impl CodexMessageProcessor {
 
         match result {
             Ok(response) => {
-                self.analytics_events_client.track_response(
-                    request_id.connection_id.0,
-                    ClientResponse::TurnStart {
-                        request_id: request_id.request_id.clone(),
-                        response: response.clone(),
-                    },
-                );
                 self.outgoing.send_response(request_id, response).await;
             }
             Err(error) => {
@@ -6741,13 +6804,6 @@ impl CodexMessageProcessor {
 
         match result {
             Ok(response) => {
-                self.analytics_events_client.track_response(
-                    request_id.connection_id.0,
-                    ClientResponse::TurnSteer {
-                        request_id: request_id.request_id.clone(),
-                        response: response.clone(),
-                    },
-                );
                 self.outgoing.send_response(request_id, response).await;
             }
             Err(error) => {
@@ -7036,7 +7092,8 @@ impl CodexMessageProcessor {
             .thread_manager
             .fork_thread(
                 ForkSnapshot::Interrupted,
-                config,
+                config.clone(),
+                thread_store_from_config(&config),
                 rollout_path,
                 /*persist_extended_history*/ false,
                 self.request_trace_context(request_id).await,
@@ -7237,6 +7294,7 @@ impl CodexMessageProcessor {
                 pending_thread_unloads: Arc::clone(&self.pending_thread_unloads),
                 analytics_events_client: self.analytics_events_client.clone(),
                 thread_watch_manager: self.thread_watch_manager.clone(),
+                thread_list_state_permit: self.thread_list_state_permit.clone(),
                 fallback_model_provider: self.config.model_provider_id.clone(),
                 codex_home: self.config.codex_home.to_path_buf(),
             },
@@ -7354,6 +7412,7 @@ impl CodexMessageProcessor {
                 pending_thread_unloads: Arc::clone(&self.pending_thread_unloads),
                 analytics_events_client: self.analytics_events_client.clone(),
                 thread_watch_manager: self.thread_watch_manager.clone(),
+                thread_list_state_permit: self.thread_list_state_permit.clone(),
                 fallback_model_provider: self.config.model_provider_id.clone(),
                 codex_home: self.config.codex_home.to_path_buf(),
             },
@@ -7402,6 +7461,7 @@ impl CodexMessageProcessor {
             pending_thread_unloads,
             analytics_events_client: _,
             thread_watch_manager,
+            thread_list_state_permit,
             fallback_model_provider,
             codex_home,
         } = listener_task_context;
@@ -7480,6 +7540,7 @@ impl CodexMessageProcessor {
                             thread_outgoing,
                             thread_state.clone(),
                             thread_watch_manager.clone(),
+                            thread_list_state_permit.clone(),
                             api_version,
                             fallback_model_provider.clone(),
                             codex_home.as_path(),
@@ -7792,14 +7853,33 @@ impl CodexMessageProcessor {
                     continue;
                 };
                 if seen_attachment_paths.insert(rollout_path.clone()) {
-                    attachment_paths.push(rollout_path);
+                    attachment_paths.push(FeedbackAttachmentPath {
+                        path: rollout_path,
+                        attachment_filename_override: None,
+                    });
                 }
+            }
+            if let Some(conversation_id) = conversation_id
+                && let Ok(conversation) = self.thread_manager.get_thread(conversation_id).await
+                && let Some(guardian_rollout_path) =
+                    conversation.guardian_trunk_rollout_path().await
+                && seen_attachment_paths.insert(guardian_rollout_path.clone())
+            {
+                attachment_paths.push(FeedbackAttachmentPath {
+                    path: guardian_rollout_path,
+                    attachment_filename_override: Some(auto_review_rollout_filename(
+                        conversation_id,
+                    )),
+                });
             }
         }
         if let Some(extra_log_files) = extra_log_files {
             for extra_log_file in extra_log_files {
                 if seen_attachment_paths.insert(extra_log_file.clone()) {
-                    attachment_paths.push(extra_log_file);
+                    attachment_paths.push(FeedbackAttachmentPath {
+                        path: extra_log_file,
+                        attachment_filename_override: None,
+                    });
                 }
             }
         }
@@ -7942,6 +8022,10 @@ impl CodexMessageProcessor {
             .send_error(request_id, internal_error(message))
             .await;
     }
+}
+
+fn auto_review_rollout_filename(thread_id: ThreadId) -> String {
+    format!("auto-review-rollout-{thread_id}.jsonl")
 }
 
 fn normalize_thread_list_cwd_filters(
@@ -10541,7 +10625,10 @@ mod tests {
         let connection_id = ConnectionId(7);
 
         let (outgoing_tx, mut outgoing_rx) = tokio::sync::mpsc::channel(8);
-        let outgoing = Arc::new(OutgoingMessageSender::new(outgoing_tx));
+        let outgoing = Arc::new(OutgoingMessageSender::new(
+            outgoing_tx,
+            codex_analytics::AnalyticsEventsClient::disabled(),
+        ));
         let thread_outgoing = ThreadScopedOutgoingMessageSender::new(
             outgoing.clone(),
             vec![connection_id],
