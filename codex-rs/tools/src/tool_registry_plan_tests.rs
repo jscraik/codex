@@ -19,9 +19,11 @@ use crate::ToolRegistryPlanMcpTool;
 use crate::ToolsConfigParams;
 use crate::WaitAgentTimeoutOptions;
 use crate::mcp_call_tool_result_output_schema;
+use crate::request_user_input_available_modes;
 use codex_app_server_protocol::AppInfo;
 use codex_features::Feature;
 use codex_features::Features;
+use codex_protocol::config_types::ModeKind;
 use codex_protocol::config_types::WebSearchConfig;
 use codex_protocol::config_types::WebSearchMode;
 use codex_protocol::config_types::WindowsSandboxLevel;
@@ -88,7 +90,7 @@ fn test_full_toolset_specs_for_gpt5_codex_unified_exec_web_search() {
         }),
         create_write_stdin_tool(),
         create_update_plan_tool(),
-        request_user_input_tool_spec(/*default_mode_request_user_input*/ false),
+        request_user_input_tool_spec(&request_user_input_available_modes(&features)),
         create_apply_patch_freeform_tool(),
         ToolSpec::WebSearch {
             external_web_access: Some(true),
@@ -384,6 +386,46 @@ fn test_build_specs_multi_agent_v2_uses_task_names_and_hides_resume() {
 }
 
 #[test]
+fn test_build_specs_multi_agent_v2_does_not_require_collab_feature() {
+    let model_info = model_info();
+    let mut features = Features::with_defaults();
+    features.disable(Feature::Collab);
+    features.enable(Feature::MultiAgentV2);
+    assert!(!features.enabled(Feature::Collab));
+    let available_models = Vec::new();
+    let tools_config = ToolsConfig::new(&ToolsConfigParams {
+        model_info: &model_info,
+        available_models: &available_models,
+        features: &features,
+        image_generation_tool_auth_allowed: true,
+        web_search_mode: Some(WebSearchMode::Cached),
+        session_source: SessionSource::Cli,
+        permission_profile: &PermissionProfile::Disabled,
+        windows_sandbox_level: WindowsSandboxLevel::Disabled,
+    });
+    let (tools, _) = build_specs(
+        &tools_config,
+        /*mcp_tools*/ None,
+        /*deferred_mcp_tools*/ None,
+        &[],
+    );
+
+    assert_contains_tool_names(
+        &tools,
+        &[
+            "spawn_agent",
+            "send_message",
+            "followup_task",
+            "wait_agent",
+            "close_agent",
+            "list_agents",
+        ],
+    );
+    assert_lacks_tool_name(&tools, "send_input");
+    assert_lacks_tool_name(&tools, "resume_agent");
+}
+
+#[test]
 fn test_build_specs_enable_fanout_enables_agent_jobs_and_collab_tools() {
     let model_info = model_info();
     let mut features = Features::with_defaults();
@@ -586,7 +628,7 @@ fn request_user_input_description_reflects_default_mode_feature_flag() {
     let request_user_input_tool = find_tool(&tools, REQUEST_USER_INPUT_TOOL_NAME);
     assert_eq!(
         request_user_input_tool.spec,
-        request_user_input_tool_spec(/*default_mode_request_user_input*/ false)
+        request_user_input_tool_spec(&request_user_input_available_modes(&features))
     );
 
     features.enable(Feature::DefaultModeRequestUserInput);
@@ -609,7 +651,7 @@ fn request_user_input_description_reflects_default_mode_feature_flag() {
     let request_user_input_tool = find_tool(&tools, REQUEST_USER_INPUT_TOOL_NAME);
     assert_eq!(
         request_user_input_tool.spec,
-        request_user_input_tool_spec(/*default_mode_request_user_input*/ true)
+        request_user_input_tool_spec(&request_user_input_available_modes(&features))
     );
 }
 
@@ -2357,10 +2399,8 @@ fn assert_lacks_tool_name(tools: &[ConfiguredToolSpec], expected_absent: &str) {
     );
 }
 
-fn request_user_input_tool_spec(default_mode_request_user_input: bool) -> ToolSpec {
-    create_request_user_input_tool(request_user_input_tool_description(
-        default_mode_request_user_input,
-    ))
+fn request_user_input_tool_spec(available_modes: &[ModeKind]) -> ToolSpec {
+    create_request_user_input_tool(request_user_input_tool_description(available_modes))
 }
 
 fn spawn_agent_tool_options(config: &ToolsConfig) -> SpawnAgentToolOptions<'_> {
