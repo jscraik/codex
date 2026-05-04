@@ -144,6 +144,7 @@ use codex_protocol::openai_models::ModelUpgrade;
 use codex_protocol::openai_models::ReasoningEffort as ReasoningEffortConfig;
 #[cfg(target_os = "windows")]
 use codex_protocol::permissions::FileSystemSandboxKind;
+use codex_rollout::StateDbHandle;
 use codex_terminal_detection::user_agent;
 use codex_utils_absolute_path::AbsolutePathBuf;
 use color_eyre::eyre::Result;
@@ -302,8 +303,8 @@ struct AutoReviewMode {
 }
 
 /// Enabling the Auto-review experiment in the TUI should also switch the
-/// current `/approvals` settings to the matching Auto-review mode. Users
-/// can still change `/approvals` afterward; this just assumes that opting into
+/// current `/permissions` settings to the matching Auto-review mode. Users
+/// can still change `/permissions` afterward; this just assumes that opting into
 /// the experiment means they want Auto-review enabled immediately.
 fn auto_review_mode() -> AutoReviewMode {
     AutoReviewMode {
@@ -423,6 +424,7 @@ struct SessionSummary {
 #[derive(Debug, Default)]
 struct InitialHistoryReplayBuffer {
     retained_lines: VecDeque<Line<'static>>,
+    render_from_transcript_tail: bool,
 }
 
 pub(crate) struct App {
@@ -432,6 +434,7 @@ pub(crate) struct App {
     pub(crate) chat_widget: ChatWidget,
     /// Config is stored here so we can recreate ChatWidgets as needed.
     pub(crate) config: Config,
+    pub(crate) state_db: Option<StateDbHandle>,
     pub(crate) active_profile: Option<String>,
     cli_kv_overrides: Vec<(String, TomlValue)>,
     harness_overrides: ConfigOverrides,
@@ -608,6 +611,7 @@ impl App {
         should_prompt_windows_sandbox_nux_at_startup: bool,
         remote_app_server_url: Option<String>,
         remote_app_server_auth_token: Option<String>,
+        state_db: Option<StateDbHandle>,
         environment_manager: Arc<EnvironmentManager>,
     ) -> Result<AppExitInfo> {
         use tokio_stream::StreamExt;
@@ -714,6 +718,12 @@ impl App {
         let enhanced_keys_supported = tui.enhanced_keys_supported();
         let wait_for_initial_session_configured =
             Self::should_wait_for_initial_session(&session_selection);
+        let should_prompt_for_paused_goal_after_startup_resume =
+            Self::should_prompt_for_paused_goal_after_startup_resume(
+                &session_selection,
+                &initial_prompt,
+                &initial_images,
+            );
         let (mut chat_widget, initial_started_thread) = match session_selection {
             SessionSelection::StartFresh | SessionSelection::Exit => {
                 let started = app_server.start_thread(&config).await?;
@@ -847,6 +857,7 @@ See the Codex keymap documentation for supported actions and examples."
             app_event_tx,
             chat_widget,
             config,
+            state_db,
             active_profile,
             cli_kv_overrides,
             harness_overrides,
@@ -889,8 +900,13 @@ See the Codex keymap documentation for supported actions and examples."
             pending_hook_enabled_writes: HashMap::new(),
         };
         if let Some(started) = initial_started_thread {
+            let thread_id = started.session.thread_id;
             app.enqueue_primary_thread_session(started.session, started.turns)
                 .await?;
+            if should_prompt_for_paused_goal_after_startup_resume {
+                app.maybe_prompt_resume_paused_goal_after_resume(&mut app_server, thread_id)
+                    .await;
+            }
         }
 
         // On startup, if a managed filesystem sandbox is active, warn about
