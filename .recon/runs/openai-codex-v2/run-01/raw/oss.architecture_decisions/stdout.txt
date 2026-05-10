@@ -1,2 +1,0 @@
-[INFO] Starting oss.architecture_decisions probe on /Users/jamiecraik/dev/codex
-[INFO] oss.architecture_decisions probe completed: OK
